@@ -87,7 +87,12 @@ export default function Hero() {
                Send an email
              </Link>
            </Button>
-           {/* More buttons if needed like "Book a call" */}
+           <Button asChild variant="outline" className="h-10 px-6 rounded-full font-medium">
+             <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+               <BadgeCheck className="mr-2 h-4 w-4" />
+               Download CV
+             </Link>
+           </Button>
         </motion.div>
 
 

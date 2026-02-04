@@ -14,6 +14,7 @@ interface ProjectCardProps {
   tags: string[]
   link?: string
   github?: string
+  image?: string
   index: number
 }
 
@@ -24,6 +25,7 @@ export default function ProjectCard({
   tags,
   link,
   github,
+  image,
   index,
 }: ProjectCardProps) {
   const statusColor = 
@@ -40,10 +42,18 @@ export default function ProjectCard({
       <Card className="h-full group flex flex-col overflow-hidden border-border bg-card transition-all hover:border-foreground/20 hover:shadow-lg">
         {/* Project Image Placeholder */}
         <div className="relative h-48 w-full overflow-hidden bg-muted">
-           {/* In a real scenario, use actual project images here. Using a pattern/gradient for now. */}
-           <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center text-muted-foreground group-hover:scale-105 transition-transform duration-500">
-              <span className="font-semibold">{title} Preview</span>
-           </div>
+           {image ? (
+              <Image 
+                src={image} 
+                alt={`${title} Preview`} 
+                fill 
+                className="object-cover transition-transform duration-500 group-hover:scale-105" 
+              />
+           ) : (
+             <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center text-muted-foreground">
+                <span className="font-semibold">{title} Preview</span>
+             </div>
+           )}
         </div>
 
         <CardContent className="flex flex-1 flex-col p-6">

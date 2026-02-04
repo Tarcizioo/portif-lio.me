@@ -6,7 +6,6 @@
 // Let's keep page default (Server Component) and import Client Components.
 
 import Hero from "@/components/Hero"
-import ActivityGraph from "@/components/ActivityGraph"
 import ExperienceItem from "@/components/ExperienceItem"
 import ProjectCard from "@/components/ProjectCard"
 import Skills from "@/components/Skills"
@@ -46,16 +45,18 @@ const projects = [
     description: "Responsive web app integrating external API (Jikan) for real-time anime data.",
     status: "Live" as const,
     tags: ["React", "CSS Modular", "REST API", "Jikan"],
-    link: "#",
-    github: "https://github.com/Tarcizioo"
+    link: "https://portal-animes-v2.vercel.app/",
+    github: "https://github.com/Tarcizioo/portal-animes-V2",
+    image: "/images/portal-animes-v2-home-screen.png"
   },
   {
     title: "Voxel Terrain Engine",
     description: "3D engine focused on performance and optimized rendering using InstancedMesh with procedural terrain generation.",
-    status: "Building" as const,
+    status: "Live" as const,
     tags: ["JavaScript", "Three.js", "WebGL"],
-    link: "#",
-    github: "https://github.com/Tarcizioo"
+    link: "https://tarcizioo.github.io/Voxel-Terrain-Engine/",
+    github: "https://github.com/Tarcizioo/Voxel-Terrain-Engine",
+    image: "/images/voxel-home-screen.png"
   },
   {
     title: "IoT Crowd Monitoring",
@@ -75,10 +76,6 @@ export default function Home() {
 
         <div className="px-6 md:px-12 py-8">
             <Hero />
-            
-            <div className="my-12 border-t border-dashed border-border/50" />
-            
-            <ActivityGraph />
             
             <div className="my-12 border-t border-dashed border-border/50" />
             
