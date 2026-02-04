@@ -41,17 +41,28 @@ export default function ProjectCard({
     >
       <Card className="h-full group flex flex-col overflow-hidden border-border bg-card transition-all hover:border-foreground/20 hover:shadow-lg">
         {/* Project Image Placeholder */}
-        <div className="relative h-48 w-full overflow-hidden bg-muted">
+        <div className="relative h-48 w-full overflow-hidden bg-[#1c1c1c]">
+           {/* Background Image (Aurora/Galaxy) - Visible on Hover */}
+           <Image 
+              src="/images/project-bg.jpg" 
+              alt="Background" 
+              fill 
+              className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              priority
+           />
+           
            {image ? (
               <Image 
                 src={image} 
                 alt={`${title} Preview`} 
                 fill 
-                className="object-cover transition-transform duration-500 group-hover:scale-105" 
+                className="object-cover transition-all duration-500 ease-in-out scale-[0.75] translate-y-4 rounded-lg shadow-lg group-hover:scale-[0.85] group-hover:translate-y-2 group-hover:shadow-[0_0_30px_-5px_rgba(0,0,0,0.5)] z-10" 
               />
            ) : (
-             <div className="absolute inset-0 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center text-muted-foreground">
-                <span className="font-semibold">{title} Preview</span>
+             <div className="absolute inset-0 flex items-center justify-center z-10 p-6">
+                <div className="w-full h-full bg-card rounded-lg flex items-center justify-center shadow-lg transition-all duration-500 group-hover:scale-[1.02]">
+                   <span className="font-semibold text-muted-foreground">{title} Preview</span>
+                </div>
              </div>
            )}
         </div>
@@ -69,7 +80,7 @@ export default function ProjectCard({
           
           <div className="mt-auto flex flex-wrap gap-2 mb-6">
             {tags.map((tag) => (
-              <Badge key={tag} variant="secondary" className="text-xs">
+              <Badge key={tag} variant="secondary" className="text-xs transition-colors duration-300 hover:bg-primary hover:text-primary-foreground cursor-default">
                 {tag}
               </Badge>
             ))}
@@ -77,12 +88,12 @@ export default function ProjectCard({
 
           <div className="flex gap-4 mt-auto pt-4 border-t border-border/50">
              {link && (
-                <Link href={link} target="_blank" className="flex items-center text-sm font-medium hover:underline">
+                <Link href={link} target="_blank" className="flex items-center text-sm font-medium transition-colors duration-200 hover:text-blue-500 hover:underline">
                   View Project <ExternalLink className="ml-1 h-3 w-3" />
                 </Link>
              )}
              {github && (
-                <Link href={github} target="_blank" className="flex items-center text-sm font-medium hover:underline">
+                <Link href={github} target="_blank" className="flex items-center text-sm font-medium transition-colors duration-200 hover:text-blue-500 hover:underline">
                    Source Code <Github className="ml-1 h-3 w-3" />
                 </Link>
              )}
