@@ -10,6 +10,7 @@ import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { Github, Linkedin, Mail, BadgeCheck } from "lucide-react"
 import { useState } from "react"
 import Image from "next/image"
+import { GithubCard, LinkedinCard } from "@/components/SocialCards"
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/Tarcizioo", label: "GitHub" },
@@ -113,35 +114,25 @@ export default function Hero() {
                    </Link>
                  </Button>
                </HoverCardTrigger>
-               <HoverCardContent className="w-80">
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2">
-                       <Avatar className="h-10 w-10">
-                          <AvatarImage src="https://github.com/Tarcizioo.png" />
-                          <AvatarFallback>TP</AvatarFallback>
-                       </Avatar>
-                       <div className="space-y-0.5">
-                          <h4 className="text-sm font-semibold">@{social.label === 'GitHub' ? 'Tarcizioo' : 'tarcizio-neto'}</h4>
-                          <p className="text-xs text-muted-foreground">
-                             {social.label === 'GitHub' ? 'Building cool stuff on GitHub' : 'Connect with me on LinkedIn'}
-                          </p>
-                       </div>
-                    </div>
-                    
-                    {/* Placeholder for the "Print" user asked about. */}
-                    <div className="relative h-32 w-full overflow-hidden rounded-md bg-muted mt-2 border">
-                        <div className="absolute inset-0 flex items-center justify-center text-center p-2">
-                           <span className="text-xs text-muted-foreground">
-                              (Optional) Add a screenshot of your {social.label} profile here
-                           </span>
+             <HoverCardContent className="w-80 p-0 border-none shadow-xl overflow-hidden bg-transparent">
+                  {social.label === 'GitHub' && (
+                     <GithubCard />
+                  )}
+                  {social.label === 'LinkedIn' && (
+                     <LinkedinCard />
+                  )}
+                  {social.label !== 'GitHub' && social.label !== 'LinkedIn' && (
+                     <div className="p-4 bg-popover text-popover-foreground rounded-md border text-center">
+                        <div className="flex items-center justify-center gap-2 mb-2">
+                           <social.icon className="h-5 w-5" />
+                           <span className="font-semibold">{social.label}</span>
                         </div>
-                        {/* 
-                           To add the print as requested:
-                           <Image src="/path-to-your-print.png" fill className="object-cover" />
-                        */}
-                    </div>
-                  </div>
-               </HoverCardContent>
+                        <p className="text-sm text-muted-foreground">
+                           View my profile on {social.label}
+                        </p>
+                     </div>
+                  )}
+             </HoverCardContent>
              </HoverCard>
            ))}
         </motion.div>
