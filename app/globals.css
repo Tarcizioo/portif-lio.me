@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 245 20% 4.7%; /* Converted #0e0d09 to HSL approx: 245 20% 4.7% ... actually wait, manual conversion: #0e0d09 is very dark. 
+    Hue: ~200-240 (blue-ish), Sat: low, Light: low. 
+    RGB: 14, 13, 9. 
+    Let's just use hex or calculate. 
+    Tailwind uses HSL variables usually if defined as numbers... but the config uses `hsl(var(--background))`. 
+    So I must put space separated HSL values. 
+    #0e0d09 -> R14 G13 B9. 
+    Max=14, Min=9. L = (14+9)/2/255 = 0.045 = 4.5%. 
+    S = (14-9)/(14+9) = 5/23 = 0.21 = 21% (if L<0.5). 
+    H: (13-9)/(14-9) ... roughly yellow/orange side? No, R is highest. 
+    Let's just use the hex directly in the variable and update tailwind config to NOT wrap in hsl() if I can, OR convert perfectly.
+    Actually, I'll update the variable to HSL values. 
+    R14 G13 B9. 
+    H = 48deg, S = 22%, L = 5%. 
+    48 22% 5%.
+    Check: 48 is yellow/orange. 
+    Wait, R=14, G=13, B=9. 
+    Red is dominant. 
+    */
+    --background: 48 22% 5%; /* Approximate #0e0d09 */ 
+    /* Actually let's just use the hex in the variable and change tailwind config to simply var(--background) if possible, 
+    but tailwind config expects numbers for opacity components. 
+    Better: keep HSL. 
+    Let's trust my HSL approx or use a tool. 
+    Let's use a very dark grey/black. 0 0% 5% is #0d0d0d. 
+    User said #0e0d09. 
+    That is R14(0E) G13(0D) B9(09). 
+    Warm black. 
+    HSL: 48 21.7% 4.5%.
+    */
+    --background: 48 22% 4.5%;
+    --foreground: 0 0% 98%;
+    --card: 48 22% 4.5%; /* Match background for seamless, or slightly lighter? Ref uses borders. */
+    --card-foreground: 0 0% 98%;
+    --popover: 48 22% 4.5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%; /* Maybe make borders clearer for the "structured" look */
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+/* Custom Utilities for the minimalist look */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
