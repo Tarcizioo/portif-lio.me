@@ -80,7 +80,7 @@ export default function Home() {
             
              <div className="my-12 border-t border-dashed border-border/50" />
 
-            <section className="mb-24">
+            <section id="contact" className="mb-24 scroll-mt-16">
                <h2 className="mb-12 text-3xl font-bold tracking-tight text-center">{t.section.contact}</h2>
                <ContactForm />
             </section>

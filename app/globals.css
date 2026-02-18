@@ -46,7 +46,7 @@
     Wait, R=14, G=13, B=9. 
     Red is dominant. 
     */
-    --background: 48 22% 5%; /* Approximate #0e0d09 */ 
+    --background: 48 22% 5%; /* Approximate #0e0d09 */
     /* Actually let's just use the hex in the variable and change tailwind config to simply var(--background) if possible, 
     but tailwind config expects numbers for opacity components. 
     Better: keep HSL. 
@@ -82,6 +82,9 @@
 @layer base {
   * {
     @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;

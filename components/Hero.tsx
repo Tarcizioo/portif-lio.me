@@ -16,6 +16,37 @@ import { useLanguage } from "@/components/LanguageContext"
 export default function Hero() {
   const { t } = useLanguage()
 
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const target = document.getElementById("contact");
+    if (!target) return;
+
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition; // Scroll to exact top of section
+    const duration = 1000; // 1 second duration for "premium" feel
+    let start: number | null = null;
+
+    const easeInOutCubic = (t: number) => {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
+
+    const animation = (currentTime: number) => {
+      if (start === null) start = currentTime;
+      const timeElapsed = currentTime - start;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+
+      window.scrollTo(0, startPosition + distance * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
+  };
+
   return (
     <section className="mb-16 pt-24 md:pt-32">
        <div className="flex justify-end mb-4">
@@ -30,6 +61,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="flex flex-col gap-4 w-full"
         >
+          {/* ... existing profile code ... */}
           <div className="flex items-center gap-4">
             <Dialog>
               <DialogTrigger asChild>
@@ -79,7 +111,7 @@ export default function Hero() {
            transition={{ duration: 0.5, delay: 0.2 }}
         >
            <Button asChild className="h-10 px-6 rounded-full font-medium">
-             <a href="#contact">
+             <a href="#contact" onClick={handleContactClick}>
                {t.hero.cta}
                <ArrowRight className="ml-2 h-4 w-4" />
              </a>
