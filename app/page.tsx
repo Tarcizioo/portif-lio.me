@@ -11,6 +11,7 @@ import ProjectCard from "@/components/ProjectCard"
 import Skills from "@/components/Skills"
 import Footer from "@/components/Footer"
 import ContactForm from "@/components/ContactForm"
+import { TechStack } from "@/components/TechStack"
 
 import { experience, projects } from "@/lib/data"
 
@@ -23,7 +24,11 @@ export default function Home() {
 
         <div className="px-6 md:px-12 py-8">
             <Hero />
-            
+        </div>
+        
+        <TechStack />
+
+        <div className="px-6 md:px-12 py-8">
             <div className="my-12 border-t border-dashed border-border/50" />
             
             <section className="mb-24">

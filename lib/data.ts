@@ -103,3 +103,16 @@ export const projects = [
     image: "/images/project-bg.jpg"
   }
 ]
+
+export const techStack = [
+  { name: "React", icon: "react" },
+  { name: "Next.js", icon: "nextjs" },
+  { name: "JavaScript (ES6+)", icon: "javascript" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "Tailwind CSS", icon: "tailwind" },
+  { name: "Node.js", icon: "nodejs" },
+  { name: "PostgreSQL", icon: "postgresql" },
+  { name: "Git", icon: "git" },
+  { name: "Figma", icon: "figma" },
+  { name: "Three.js", icon: "threejs" },
+]
