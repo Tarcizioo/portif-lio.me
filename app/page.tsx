@@ -10,6 +10,7 @@ import ExperienceItem from "@/components/ExperienceItem"
 import ProjectCard from "@/components/ProjectCard"
 import Skills from "@/components/Skills"
 import Footer from "@/components/Footer"
+import ContactForm from "@/components/ContactForm"
 
 import { experience, projects } from "@/lib/data"
 
@@ -48,6 +49,13 @@ export default function Home() {
              <div className="my-12 border-t border-dashed border-border/50" />
 
             <Skills />
+            
+             <div className="my-12 border-t border-dashed border-border/50" />
+
+            <section className="mb-24">
+               <h2 className="mb-12 text-3xl font-bold tracking-tight text-center">Let's Talk</h2>
+               <ContactForm />
+            </section>
             
              <div className="my-12 border-t border-dashed border-border/50" />
             
