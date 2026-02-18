@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { CommandMenu } from "@/components/CommandMenu";
+import { LanguageProvider } from "@/components/LanguageContext";
 
 import { siteConfig } from "@/lib/data";
 
@@ -85,9 +86,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
-          <Toaster />
-          <CommandMenu />
+          <LanguageProvider>
+            {children}
+            <Toaster />
+            <CommandMenu />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog"
 import { motion } from "framer-motion"
 import { ExternalLink, Github, Monitor, Server, Wrench } from "lucide-react"
+import { useLanguage } from "@/components/LanguageContext"
 
 interface ProjectCardProps {
   title: string
@@ -40,8 +41,18 @@ export default function ProjectCard({
   image,
   index,
 }: ProjectCardProps) {
+  const { t } = useLanguage()
   const isComingSoon = status === "Coming Soon"
   
+  const getStatusLabel = (status: string) => {
+    switch (status) {
+      case "Live": return t.project.status.live;
+      case "Building": return t.project.status.building;
+      case "Coming Soon": return t.project.status.comingSoon;
+      default: return status;
+    }
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild disabled={isComingSoon}>
@@ -81,7 +92,7 @@ export default function ProjectCard({
               {isComingSoon && (
                   <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 backdrop-blur-[1px]">
                       <span className="text-2xl font-black uppercase tracking-widest text-white drop-shadow-md border-4 border-white/80 px-4 py-1">
-                          Coming Soon
+                          {t.project.status.comingSoon}
                       </span>
                   </div>
               )}
@@ -97,7 +108,7 @@ export default function ProjectCard({
                      
                    return (
                      <div className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide backdrop-blur-md border ${statusColorClasses}`}>
-                        {status}
+                        {getStatusLabel(status)}
                      </div>
                    );
                 })()}
@@ -126,7 +137,7 @@ export default function ProjectCard({
               {/* ... footer ... */}
                <div className="flex gap-4 mt-auto pt-4 border-t border-border/50">
                   <span className="text-sm font-medium text-primary flex items-center gap-1 transition-colors group-hover:underline">
-                    View Details <Monitor className="w-3 h-3" />
+                    {t.project.details} <Monitor className="w-3 h-3" />
                   </span>
               </div>
             </CardContent>
@@ -163,7 +174,7 @@ export default function ProjectCard({
                         "text-muted-foreground border-border";
                       return (
                         <div className={`px-2.5 py-0.5 rounded-full text-xs font-medium bg-background/80 backdrop-blur-sm border ${statusColorClasses}`}>
-                           {status}
+                           {getStatusLabel(status)}
                         </div>
                       );
                    })()}
@@ -181,7 +192,7 @@ export default function ProjectCard({
            {features && features.length > 0 && (
              <div>
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
-                  <Server className="w-4 h-4" /> Key Features
+                  <Server className="w-4 h-4" /> {t.project.features}
                 </h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                    {features.map((feature, i) => (
@@ -196,7 +207,7 @@ export default function ProjectCard({
 
            <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
-                <Wrench className="w-4 h-4" /> Technologies
+                <Wrench className="w-4 h-4" /> {t.project.technologies}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {tags.map((tag) => (
@@ -211,14 +222,14 @@ export default function ProjectCard({
               {link && (
                  <Button asChild className="flex-1">
                     <Link href={link} target="_blank">
-                       <ExternalLink className="mr-2 h-4 w-4" /> Visit Project
+                       <ExternalLink className="mr-2 h-4 w-4" /> {t.project.view}
                     </Link>
                  </Button>
               )}
               {github && (
                  <Button asChild variant="outline" className="flex-1">
                     <Link href={github} target="_blank">
-                       <Github className="mr-2 h-4 w-4" /> View Code
+                       <Github className="mr-2 h-4 w-4" /> {t.project.source}
                     </Link>
                  </Button>
               )}

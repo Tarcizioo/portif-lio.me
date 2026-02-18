@@ -18,6 +18,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
+import { useLanguage } from "@/components/LanguageContext"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -32,6 +33,7 @@ const formSchema = z.object({
 })
 
 export default function ContactForm() {
+  const { t } = useLanguage()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -49,8 +51,8 @@ export default function ContactForm() {
     await new Promise((resolve) => setTimeout(resolve, 2000))
     
     console.log(values)
-    toast.success("Message sent successfully!", {
-        description: "Thanks for reaching out. I'll get back to you soon.",
+    toast.success(t.contact.success, {
+        description: t.contact.successDesc,
     })
     
     setIsSubmitting(false)
@@ -60,9 +62,9 @@ export default function ContactForm() {
   return (
     <Card className="w-full max-w-md mx-auto border-muted/40 shadow-sm bg-card/50 backdrop-blur-sm">
       <CardHeader>
-        <CardTitle>Get in touch</CardTitle>
+        <CardTitle>{t.contact.title}</CardTitle>
         <CardDescription>
-          Have a question or want to work together? Send me a message!
+          {t.contact.description}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -73,7 +75,7 @@ export default function ContactForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>{t.contact.name}</FormLabel>
                   <FormControl>
                     <Input placeholder="John Doe" {...field} className="bg-background/50" />
                   </FormControl>
@@ -86,7 +88,7 @@ export default function ContactForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>{t.contact.email}</FormLabel>
                   <FormControl>
                     <Input placeholder="john@example.com" {...field} className="bg-background/50" />
                   </FormControl>
@@ -99,10 +101,10 @@ export default function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel>{t.contact.message}</FormLabel>
                   <FormControl>
                     <Textarea 
-                        placeholder="Tell me about your project..." 
+                        placeholder={t.contact.message} 
                         className="resize-none min-h-[120px] bg-background/50" 
                         {...field} 
                     />
@@ -115,12 +117,12 @@ export default function ContactForm() {
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Sending...
+                  {t.contact.sending}
                 </>
               ) : (
                 <>
                   <Send className="mr-2 h-4 w-4" />
-                  Send Message
+                  {t.contact.submit}
                 </>
               )}
             </Button>

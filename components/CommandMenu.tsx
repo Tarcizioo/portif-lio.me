@@ -29,11 +29,13 @@ import {
 import { useTheme } from "next-themes"
 import { useRouter } from "next/navigation"
 import { siteConfig } from "@/lib/data"
+import { useLanguage } from "@/components/LanguageContext"
 
 export function CommandMenu() {
   const [open, setOpen] = React.useState(false)
   const { setTheme } = useTheme()
   const router = useRouter()
+  const { t } = useLanguage()
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -63,43 +65,43 @@ export function CommandMenu() {
       </p>
 
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder={t.command.search} />
         <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="General">
+          <CommandEmpty>{t.command.noResults}</CommandEmpty>
+          <CommandGroup heading={t.command.general}>
             <CommandItem onSelect={() => runCommand(() => window.open(`mailto:${siteConfig.email}`, '_self'))}>
               <Mail className="mr-2 h-4 w-4" />
-              <span>Send Email</span>
+              <span>{t.command.sendEmail}</span>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => window.open(siteConfig.links.resume, '_blank'))}>
               <User className="mr-2 h-4 w-4" />
-              <span>Download CV</span>
+              <span>{t.command.downloadCv}</span>
             </CommandItem>
           </CommandGroup>
           <CommandSeparator />
-          <CommandGroup heading="Socials">
+          <CommandGroup heading={t.command.socials}>
             <CommandItem onSelect={() => runCommand(() => window.open(siteConfig.links.github, '_blank'))}>
               <Github className="mr-2 h-4 w-4" />
-              <span>GitHub</span>
+              <span>{t.command.viewGithub}</span>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => window.open(siteConfig.links.linkedin, '_blank'))}>
               <Linkedin className="mr-2 h-4 w-4" />
-              <span>LinkedIn</span>
+              <span>{t.command.viewLinkedin}</span>
             </CommandItem>
           </CommandGroup>
           <CommandSeparator />
-          <CommandGroup heading="Theme">
+          <CommandGroup heading={t.command.theme}>
             <CommandItem onSelect={() => runCommand(() => setTheme("light"))}>
               <Sun className="mr-2 h-4 w-4" />
-              <span>Light</span>
+              <span>{t.command.light}</span>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => setTheme("dark"))}>
               <Moon className="mr-2 h-4 w-4" />
-              <span>Dark</span>
+              <span>{t.command.dark}</span>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => setTheme("system"))}>
               <Laptop className="mr-2 h-4 w-4" />
-              <span>System</span>
+              <span>{t.command.system}</span>
             </CommandItem>
           </CommandGroup>
         </CommandList>

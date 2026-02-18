@@ -7,12 +7,15 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
-import { Mail, BadgeCheck } from "lucide-react"
+import { Mail, BadgeCheck, ArrowRight, Download } from "lucide-react"
 import Image from "next/image"
 import { GithubCard, LinkedinCard } from "@/components/SocialCards"
 import { socialLinks, siteConfig } from "@/lib/data"
+import { useLanguage } from "@/components/LanguageContext"
 
 export default function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section className="mb-16 pt-24 md:pt-32">
        <div className="flex justify-end mb-4">
@@ -59,12 +62,12 @@ export default function Hero() {
                 <h1 className="text-3xl font-bold tracking-tight">{siteConfig.name}</h1>
                 <BadgeCheck className="h-6 w-6 text-blue-500 fill-blue-500/10" />
               </div>
-              <p className="text-muted-foreground font-medium">{siteConfig.role}</p>
+              <p className="text-muted-foreground font-medium">{t.hero.role}</p>
             </div>
           </div>
 
           <p className="mt-2 max-w-[600px] text-lg text-muted-foreground md:text-xl">
-             {siteConfig.description}
+             {t.hero.description}
           </p>
         </motion.div>
 
@@ -76,15 +79,15 @@ export default function Hero() {
            transition={{ duration: 0.5, delay: 0.2 }}
         >
            <Button asChild className="h-10 px-6 rounded-full font-medium">
-             <Link href={`mailto:${siteConfig.email}`}>
-               <Mail className="mr-2 h-4 w-4" />
-               Send an email
-             </Link>
+             <a href="#contact">
+               {t.hero.cta}
+               <ArrowRight className="ml-2 h-4 w-4" />
+             </a>
            </Button>
            <Button asChild variant="outline" className="h-10 px-6 rounded-full font-medium">
              <Link href={siteConfig.links.resume} target="_blank" rel="noopener noreferrer">
-               <BadgeCheck className="mr-2 h-4 w-4" />
-               Download CV
+               {t.hero.resume}
+               <Download className="mr-2 h-4 w-4" />
              </Link>
            </Button>
         </motion.div>
