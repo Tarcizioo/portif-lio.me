@@ -1,8 +1,7 @@
 "use client"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { MapPin, Link as LinkIcon, Users, Building2 } from "lucide-react"
+import { MapPin, Users } from "lucide-react"
 import Image from "next/image"
 
 export function GithubCard() {

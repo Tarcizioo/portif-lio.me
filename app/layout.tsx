@@ -14,9 +14,56 @@ const geistMono = Geist_Mono({
 
 import { ThemeProvider } from "@/components/theme-provider";
 
+import { siteConfig } from "@/lib/data";
+
 export const metadata: Metadata = {
-  title: "Tarcizio Pereira Neto | Front-end Developer",
-  description: "Computer Engineering Student and Front-end Developer (React/Next.js).",
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Server Components",
+    "Portfolio",
+    "Tarcizio",
+    "Front-end",
+  ],
+  authors: [
+    {
+      name: siteConfig.name,
+      url: siteConfig.links.github,
+    },
+  ],
+  creator: siteConfig.name,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://your-domain.com", // TODO: Update with actual domain
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/images/og-image.jpg", // TODO: Add an OG image
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: ["/images/og-image.jpg"],
+    creator: "@yourhandle", // TODO: Update with actual handle
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

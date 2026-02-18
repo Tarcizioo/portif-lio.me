@@ -35,7 +35,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Tarcizio Pereira Neto. All rights reserved.
           </p>
           <p className="text-sm italic text-muted-foreground">
-            "Simplicity is the ultimate sophistication."
+            &quot;Simplicity is the ultimate sophistication.&quot;
           </p>
         </div>
       </div>

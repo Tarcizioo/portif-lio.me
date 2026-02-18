@@ -11,61 +11,7 @@ import ProjectCard from "@/components/ProjectCard"
 import Skills from "@/components/Skills"
 import Footer from "@/components/Footer"
 
-const experience = [
-  {
-    title: "Intern - Laboratório de Elétrica",
-    company: "Centro Universitário Facens",
-    logo: "/images/facens-logo.png",
-    period: "08/2024 - Present",
-    location: "Sorocaba/SP",
-    description: [
-      "Technical support in assembling electrical and physics experiments, assisting professors and students.",
-      "Inventory management and material control using Excel to ensure resource availability for practical classes.",
-      "Standardization of experiment guides to improve internal organization."
-    ],
-    tags: ["Lab Support", "Excel", "Organization", "Teaching"]
-  },
-  {
-    title: "Telemarketing Operator",
-    company: "Instituto Cultural Newton Paiva Ferreira",
-    logo: "/images/newton-logo.jpg",
-    period: "04/2023 - 09/2023",
-    location: "Belo Horizonte",
-    description: [
-      "Developed assertive communication and problem-solving skills under pressure (40-50 calls/day).",
-      "Used CRM and Excel for lead management and data auditing, praised for organization and clarity."
-    ],
-    tags: ["Communication", "CRM", "Excel", "Problem Solving"]
-  }
-]
-
-const projects = [
-  {
-    title: "Portal de Animes",
-    description: "Responsive web app integrating external API (Jikan) for real-time anime data.",
-    status: "Live" as const,
-    tags: ["React", "CSS Modular", "REST API", "Jikan"],
-    link: "https://portal-animes-v2.vercel.app/",
-    github: "https://github.com/Tarcizioo/portal-animes-V2",
-    image: "/images/portal-animes-v2-home-screen.png"
-  },
-  {
-    title: "Voxel Terrain Engine",
-    description: "3D engine focused on performance and optimized rendering using InstancedMesh with procedural terrain generation.",
-    status: "Live" as const,
-    tags: ["JavaScript", "Three.js", "WebGL"],
-    link: "https://tarcizioo.github.io/Voxel-Terrain-Engine/",
-    github: "https://github.com/Tarcizioo/Voxel-Terrain-Engine",
-    image: "/images/voxel-home-screen.png"
-  },
-  {
-    title: "IoT Crowd Monitoring",
-    description: "Hardware prototype to predict crowd levels using ultrasonic sensors and ESP32.",
-    status: "Building" as const,
-    tags: ["ESP32", "Arduino", "IoT", "API"],
-    github: "https://github.com/Tarcizioo"
-  }
-]
+import { experience, projects } from "@/lib/data"
 
 export default function Home() {
   return (

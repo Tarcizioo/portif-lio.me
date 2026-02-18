@@ -7,19 +7,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
-import { Github, Linkedin, Mail, BadgeCheck } from "lucide-react"
-import { useState } from "react"
+import { Mail, BadgeCheck } from "lucide-react"
 import Image from "next/image"
 import { GithubCard, LinkedinCard } from "@/components/SocialCards"
-
-const socialLinks = [
-  { icon: Github, href: "https://github.com/Tarcizioo", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/tarcizio-pereira-neto-135299279", label: "LinkedIn" },
-]
+import { socialLinks, siteConfig } from "@/lib/data"
 
 export default function Hero() {
-  const [isOpen, setIsOpen] = useState(false)
-
   return (
     <section className="mb-16 pt-24 md:pt-32">
        <div className="flex justify-end mb-4">
@@ -37,22 +30,23 @@ export default function Hero() {
           <div className="flex items-center gap-4">
             <Dialog>
               <DialogTrigger asChild>
-                <div className="relative cursor-pointer group">
+                <button className="relative cursor-pointer group rounded-xl focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
                   <Avatar className="h-28 w-28 rounded-xl border-2 border-border transition-transform group-hover:scale-105">
-                    <AvatarImage src="/images/profile-final.jpg" alt="Tarcizio" className="rounded-xl object-cover" />
+                    <AvatarImage src="/images/profile-final.jpg" alt={siteConfig.name} className="rounded-xl object-cover" />
                     <AvatarFallback className="rounded-xl">TP</AvatarFallback>
                   </Avatar>
                   <div className="absolute inset-0 rounded-xl bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-xs text-white font-medium">
                     View
                   </div>
-                </div>
+                  <span className="sr-only">View Profile Picture</span>
+                </button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-transparent border-none shadow-none">
                  <DialogTitle className="sr-only">Profile Picture</DialogTitle>
                  <div className="relative h-80 w-80 mx-auto rounded-xl overflow-hidden border-4 border-background">
                     <Image 
                       src="/images/profile-final.jpg" 
-                      alt="Tarcizio Profile" 
+                      alt={`${siteConfig.name} Profile`}
                       fill 
                       className="object-cover"
                     />
@@ -62,15 +56,15 @@ export default function Hero() {
 
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
-                <h1 className="text-3xl font-bold tracking-tight">Tarcizio</h1>
+                <h1 className="text-3xl font-bold tracking-tight">{siteConfig.name}</h1>
                 <BadgeCheck className="h-6 w-6 text-blue-500 fill-blue-500/10" />
               </div>
-              <p className="text-muted-foreground font-medium">Front-end Developer</p>
+              <p className="text-muted-foreground font-medium">{siteConfig.role}</p>
             </div>
           </div>
 
           <p className="mt-2 max-w-[600px] text-lg text-muted-foreground md:text-xl">
-             Hey, I'm Tarcizio. Computer Engineering Student (5th Sem) focused on Front-end Development (React/Next.js) and Web Design. I create modern interfaces and explore IoT solutions.
+             {siteConfig.description}
           </p>
         </motion.div>
 
@@ -82,13 +76,13 @@ export default function Hero() {
            transition={{ duration: 0.5, delay: 0.2 }}
         >
            <Button asChild className="h-10 px-6 rounded-full font-medium">
-             <Link href="mailto:tarcizioneto10@gmail.com">
+             <Link href={`mailto:${siteConfig.email}`}>
                <Mail className="mr-2 h-4 w-4" />
                Send an email
              </Link>
            </Button>
            <Button asChild variant="outline" className="h-10 px-6 rounded-full font-medium">
-             <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+             <Link href={siteConfig.links.resume} target="_blank" rel="noopener noreferrer">
                <BadgeCheck className="mr-2 h-4 w-4" />
                Download CV
              </Link>
@@ -105,7 +99,7 @@ export default function Hero() {
         >
            <p className="w-full text-sm font-semibold text-muted-foreground mb-1">Here are my socials</p>
            {socialLinks.map((social) => (
-             <HoverCard key={social.label}>
+             <HoverCard key={social.label} openDelay={0} closeDelay={0}>
                <HoverCardTrigger asChild>
                  <Button
                    variant="outline"
