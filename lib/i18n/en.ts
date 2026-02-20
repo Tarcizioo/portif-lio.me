@@ -1,7 +1,7 @@
 export const en = {
   hero: {
     role: "Front-end Developer",
-    description: "Computer Engineering Student (5th Sem) focused on Front-end Development and Web Design. I create modern interfaces and explore IoT solutions.",
+    description: "Computer Engineering Student (5th Sem) focused on Front-end Development and Web Design.",
     cta: "Contact Me",
     resume: "Download CV",
     socials: "Here are my socials",
@@ -11,6 +11,7 @@ export const en = {
     experience: "Work Experience",
     projects: "Selected Projects",
     skills: "Skills & Technologies",
+    education: "Education & Certifications",
     contact: "Let's Talk",
     about: "About Me"
   },
@@ -22,10 +23,32 @@ export const en = {
       { name: "Tools & Others", items: ["Git", "GitHub", "VS Code", "SQL", "Excel (Dashboards)"] },
     ]
   },
+  education: {
+    degree: {
+      title: "Computer Engineering",
+      institution: "Centro Universitário Facens",
+      period: "Feb/2024 — Nov/2028 (Expected)",
+      status: "Currently in the 5th Semester",
+    },
+    certifications: [
+      {
+        name: "Scrum Fundamentals Certified (SFC)",
+        issuer: "SCRUMstudy",
+        date: "Nov/2025",
+      },
+    ],
+    languages: [
+      { name: "Portuguese", level: "Native" },
+      { name: "English", level: "Intermediate" },
+      { name: "Spanish", level: "Basic" },
+    ],
+    labels: {
+      degree: "Degree",
+      certifications: "Certifications",
+      languages: "Languages",
+    }
+  },
   footer: {
-    newsletter: "Subscribe to my newsletter",
-    newsletterDesc: "Get updates on my latest projects and articles.",
-    subscribe: "Subscribe",
     rights: "All rights reserved.",
     quote: "\"Simplicity is the ultimate sophistication.\""
   },

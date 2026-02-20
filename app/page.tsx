@@ -4,6 +4,7 @@ import Hero from "@/components/Hero"
 import ExperienceItem from "@/components/ExperienceItem"
 import ProjectCard from "@/components/ProjectCard"
 import Skills from "@/components/Skills"
+import Education from "@/components/Education"
 import Footer from "@/components/Footer"
 import ContactForm from "@/components/ContactForm"
 import { TechStack } from "@/components/TechStack"
@@ -75,6 +76,10 @@ export default function Home() {
              <div className="my-12 border-t border-dashed border-border/50" />
 
             <Skills />
+            
+             <div className="my-12 border-t border-dashed border-border/50" />
+
+            <Education />
             
              <div className="my-12 border-t border-dashed border-border/50" />
 

@@ -19,6 +19,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { useLanguage } from "@/components/LanguageContext"
+import { siteConfig } from "@/lib/data"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -47,16 +48,35 @@ export default function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000))
     
-    console.log(values)
-    toast.success(t.contact.success, {
-        description: t.contact.successDesc,
-    })
-    
-    setIsSubmitting(false)
-    form.reset()
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "28d9bc45-748c-4175-9d63-4721675d18a1",
+          name: values.name,
+          email: values.email,
+          message: values.message,
+          subject: `Portfolio Contact from ${values.name}`,
+        }),
+      })
+      
+      const data = await response.json()
+      
+      if (data.success) {
+        toast.success(t.contact.success, {
+          description: t.contact.successDesc,
+        })
+        form.reset()
+      } else {
+        toast.error("Something went wrong. Please try again.")
+      }
+    } catch {
+      toast.error("Failed to send message. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (

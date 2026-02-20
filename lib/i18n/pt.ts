@@ -1,7 +1,7 @@
 export const pt = {
   hero: {
     role: "Desenvolvedor Front-end",
-    description: "Estudante de Engenharia da Computação (5º Sem) focado em Desenvolvimento Front-end e Web Design. Crio interfaces modernas e exploro soluções em IoT.",
+    description: "Estudante de Engenharia da Computação (5º Sem) focado em Desenvolvimento Front-end e Web Design.",
     cta: "Entre em Contato",
     resume: "Baixar CV",
     socials: "Minhas redes sociais",
@@ -11,6 +11,7 @@ export const pt = {
     experience: "Experiência Profissional",
     projects: "Projetos Selecionados",
     skills: "Habilidades & Tecnologias",
+    education: "Educação & Certificações",
     contact: "Vamos Conversar",
     about: "Sobre Mim"
   },
@@ -22,10 +23,32 @@ export const pt = {
       { name: "Ferramentas & Outros", items: ["Git", "GitHub", "VS Code", "SQL", "Excel (Dashboards)"] },
     ]
   },
+  education: {
+    degree: {
+      title: "Engenharia da Computação",
+      institution: "Centro Universitário Facens",
+      period: "Fev/2024 — Nov/2028 (Previsão)",
+      status: "Atualmente no 5º Semestre",
+    },
+    certifications: [
+      {
+        name: "Scrum Fundamentals Certified (SFC)",
+        issuer: "SCRUMstudy",
+        date: "Nov/2025",
+      },
+    ],
+    languages: [
+      { name: "Português", level: "Nativo" },
+      { name: "Inglês", level: "Intermediário" },
+      { name: "Espanhol", level: "Básico" },
+    ],
+    labels: {
+      degree: "Formação",
+      certifications: "Certificações",
+      languages: "Idiomas",
+    }
+  },
   footer: {
-    newsletter: "Assine minha newsletter",
-    newsletterDesc: "Receba atualizações sobre meus projetos e artigos.",
-    subscribe: "Assinar",
     rights: "Todos os direitos reservados.",
     quote: "\"Simplicidade é a sofisticação suprema.\""
   },

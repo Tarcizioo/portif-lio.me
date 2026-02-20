@@ -1,20 +1,22 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "@/components/LanguageContext"
 
-const sections = ["experience", "projects", "skills", "contact"]
+const sections = ["experience", "projects", "skills", "education", "contact"]
 
 export function Navbar() {
   const { t } = useLanguage()
   const [isVisible, setIsVisible] = useState(false)
   const [activeSection, setActiveSection] = useState("")
+  const isScrollingRef = useRef(false)
 
   const sectionLabels: Record<string, string> = {
     experience: t.section.experience,
     projects: t.section.projects,
     skills: t.section.skills,
+    education: t.section.education,
     contact: t.section.contact,
   }
 
@@ -22,13 +24,26 @@ export function Navbar() {
     const handleScroll = () => {
       setIsVisible(window.scrollY > 300)
 
+      // Skip scroll spy while programmatic scroll is happening
+      if (isScrollingRef.current) return
+
       // Scroll spy: determine which section is currently in view
+      const scrollY = window.scrollY
+      const viewportHeight = window.innerHeight
+      const docHeight = document.documentElement.scrollHeight
+
+      // If scrolled to near bottom, activate last section
+      if (scrollY + viewportHeight >= docHeight - 50) {
+        setActiveSection(sections[sections.length - 1])
+        return
+      }
+
       let current = ""
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId)
         if (el) {
           const rect = el.getBoundingClientRect()
-          if (rect.top <= 120) {
+          if (rect.top <= 150) {
             current = sectionId
           }
         }
@@ -44,6 +59,10 @@ export function Navbar() {
     const el = document.getElementById(id)
     if (!el) return
 
+    // Lock scroll spy and set active section immediately
+    isScrollingRef.current = true
+    setActiveSection(id)
+
     const targetPosition = el.getBoundingClientRect().top + window.scrollY - 80
     const startPosition = window.scrollY
     const distance = targetPosition - startPosition
@@ -58,7 +77,12 @@ export function Navbar() {
       const timeElapsed = currentTime - start
       const progress = Math.min(timeElapsed / duration, 1)
       window.scrollTo(0, startPosition + distance * easeInOutCubic(progress))
-      if (timeElapsed < duration) requestAnimationFrame(animation)
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation)
+      } else {
+        // Re-enable scroll spy after animation completes
+        isScrollingRef.current = false
+      }
     }
 
     requestAnimationFrame(animation)
