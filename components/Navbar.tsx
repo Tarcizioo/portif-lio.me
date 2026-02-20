@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "@/components/LanguageContext"
 
-const sections = ["experience", "projects", "skills", "education", "contact"]
+const sections = ["about", "experience", "projects", "skills", "education", "contact"]
 
 export function Navbar() {
   const { t } = useLanguage()
@@ -13,6 +13,7 @@ export function Navbar() {
   const isScrollingRef = useRef(false)
 
   const sectionLabels: Record<string, string> = {
+    about: t.section.about,
     experience: t.section.experience,
     projects: t.section.projects,
     skills: t.section.skills,

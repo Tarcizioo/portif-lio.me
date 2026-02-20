@@ -10,6 +10,7 @@ export default function Footer() {
   const { t } = useLanguage()
 
   const navLinks = [
+    { label: t.footer.nav.about, id: "about" },
     { label: t.footer.nav.experience, id: "experience" },
     { label: t.footer.nav.projects, id: "projects" },
     { label: t.footer.nav.skills, id: "skills" },
@@ -96,19 +97,15 @@ export default function Footer() {
           </Link>
         </motion.div>
 
-        <div className="flex flex-col items-center justify-between gap-2 text-center md:flex-row md:text-left">
+        {/* Copyright & Built with */}
+        <div className="flex flex-col items-center gap-2 text-center">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} {siteConfig.name}. {t.footer.rights}
           </p>
-          <p className="text-sm italic text-muted-foreground">
-            {t.footer.quote}
+          <p className="text-xs text-muted-foreground/60">
+            {t.footer.builtWith} Next.js <Heart className="inline h-3 w-3 text-red-500 fill-red-500 mx-0.5" /> & Tailwind CSS
           </p>
         </div>
-
-        {/* Built with */}
-        <p className="text-center text-xs text-muted-foreground/60">
-          {t.footer.builtWith} Next.js <Heart className="inline h-3 w-3 text-red-500 fill-red-500 mx-0.5" /> & Tailwind CSS
-        </p>
       </div>
     </footer>
   )

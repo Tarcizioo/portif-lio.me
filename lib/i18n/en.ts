@@ -58,9 +58,9 @@ export const en = {
   },
   footer: {
     rights: "All rights reserved.",
-    quote: "\"Simplicity is the ultimate sophistication.\"",
     builtWith: "Built with",
     nav: {
+      about: "About Me",
       experience: "Experience",
       projects: "Projects",
       skills: "Skills",
@@ -138,7 +138,7 @@ export const en = {
     },
     items: [
       {
-        title: "Portal de Animes",
+        title: "Portal Animes",
         description: "Responsive web app integrating external API (Jikan) for real-time anime data.",
         longDescription: "A comprehensive anime discovery platform built with React and Next.js. Users can search for their favorite anime, view detailed information including synopsis, characters, and episodes, and see top-rated series.",
         features: [
