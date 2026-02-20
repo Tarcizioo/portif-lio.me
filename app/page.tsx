@@ -11,11 +11,21 @@ import ContactForm from "@/components/ContactForm"
 import { TechStack } from "@/components/TechStack"
 import { Navbar } from "@/components/Navbar"
 import { ScrollToTop } from "@/components/ScrollToTop"
+import { motion } from "framer-motion"
 
 import { experience, projects } from "@/lib/data"
 
 import { LanguageToggle } from "@/components/LanguageToggle"
 import { useLanguage } from "@/components/LanguageContext"
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }
+  }
+}
 
 export default function Home() {
   const { t } = useLanguage()
@@ -23,7 +33,12 @@ export default function Home() {
     <main className="min-h-screen bg-background flex justify-center">
       <Navbar />
       <ScrollToTop />
-      <div className="w-full max-w-3xl border-x border-dashed border-border/50 relative">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-3xl border-x border-dashed border-border/50 relative"
+      >
          {/* Grid Background Effect */}
          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-10" />
 
@@ -38,11 +53,25 @@ export default function Home() {
         <TechStack />
 
         <div className="px-6 md:px-12 py-8">
-            <AboutMe />
+            <motion.div
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <AboutMe />
+            </motion.div>
 
             <div className="my-12 border-t border-dashed border-border/50" />
             
-            <section id="experience" className="mb-24 scroll-mt-20">
+            <motion.section
+              id="experience"
+              className="mb-24 scroll-mt-20"
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="mb-12 text-3xl font-bold tracking-tight">{t.section.experience}</h2>
               <div className="ml-2">
                  {experience.map((item, index) => (
@@ -55,11 +84,18 @@ export default function Home() {
                    />
                  ))}
               </div>
-            </section>
+            </motion.section>
 
              <div className="my-12 border-t border-dashed border-border/50" />
 
-            <section id="projects" className="mb-24 scroll-mt-20">
+            <motion.section
+              id="projects"
+              className="mb-24 scroll-mt-20"
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="mb-12 text-3xl font-bold tracking-tight">{t.section.projects}</h2>
               <div className="grid gap-6 sm:grid-cols-2">
                 {projects.map((project, index) => (
@@ -74,28 +110,50 @@ export default function Home() {
                   />
                 ))}
               </div>
-            </section>
+            </motion.section>
 
              <div className="my-12 border-t border-dashed border-border/50" />
 
-            <Skills />
+            <motion.div
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <Skills />
+            </motion.div>
             
              <div className="my-12 border-t border-dashed border-border/50" />
 
-            <Education />
+            <motion.div
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <Education />
+            </motion.div>
             
              <div className="my-12 border-t border-dashed border-border/50" />
 
-            <section id="contact" className="mb-24 scroll-mt-20">
+            <motion.section
+              id="contact"
+              className="mb-24 scroll-mt-20"
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
                <h2 className="mb-12 text-3xl font-bold tracking-tight text-center">{t.section.contact}</h2>
                <ContactForm />
-            </section>
+            </motion.section>
             
              <div className="my-12 border-t border-dashed border-border/50" />
             
             <Footer />
         </div>
-      </div>
+      </motion.div>
     </main>
   )
 }
+

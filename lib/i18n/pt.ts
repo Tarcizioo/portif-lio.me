@@ -139,35 +139,35 @@ export const pt = {
     items: [
       {
         title: "Portal Animes",
-        description: "WebApp responsivo integrando API externa (Jikan) para dados de animes em tempo real.",
-        longDescription: "Uma plataforma completa de descoberta de animes construída com React e Next.js. Usuários podem buscar seus animes favoritos, ver informações detalhadas incluindo sinopse, personagens e episódios.",
+        description: "WebApp responsivo full-stack com dados de animes em tempo real via Jikan API, busca avançada e filtragem dinâmica.",
+        longDescription: "Uma plataforma completa de descoberta de animes construída com React e Next.js. Oferece busca em tempo real com filtragem debounced, perfis detalhados com sinopse, personagens e episódios, e layout responsivo em grid.",
         features: [
-          "Busca de dados em tempo real usando Jikan API",
-          "Capacidades dinâmicas de busca e filtro",
-          "Layout de grid responsivo",
-          "Páginas detalhadas de perfil de anime"
+          "Busca de dados em tempo real via Jikan REST API",
+          "Busca debounced com filtragem dinâmica",
+          "Layout de grid responsivo com CSS Modules",
+          "Páginas de perfil de anime com carregamento lazy"
         ]
       },
       {
         title: "Voxel Terrain Engine",
-        description: "Engine 3D focada em performance e renderização otimizada usando InstancedMesh com geração procedural de terreno.",
-        longDescription: "Uma engine voxel 3D de alta performance rodando no navegador. Utiliza Three.js e WebGL para renderizar vastos terrenos procedurais.",
+        description: "Engine 3D de alta performance no navegador com geração procedural de terreno e renderização otimizada via InstancedMesh.",
+        longDescription: "Uma engine voxel 3D em tempo real rodando inteiramente no navegador. Utiliza Three.js e WebGL com InstancedMesh para renderização GPU-otimizada de blocos, terreno procedural via Perlin Noise e câmera em primeira pessoa.",
         features: [
-          "Geração procedural de terreno usando Perlin Noise",
-          "Renderização otimizada com InstancedMesh",
-          "Controles de câmera em primeira pessoa",
-          "Carregamento dinâmico de chunks"
+          "Geração procedural de terreno com Perlin Noise",
+          "Renderização GPU-otimizada via InstancedMesh",
+          "Câmera em primeira pessoa com pointer lock",
+          "Carregamento dinâmico de chunks para performance"
         ]
       },
       {
         title: "IoT Crowd Monitoring",
-        description: "Protótipo de hardware para predizer níveis de multidão usando sensores ultrassônicos e ESP32.",
-        longDescription: "Uma solução IoT projetada para monitorar e analisar tráfego de pessoas em tempo real. Usando um microcontrolador ESP32 e sensores ultrassônicos.",
+        description: "Protótipo IoT com ESP32 para predição de densidade de multidão em tempo real usando sensores ultrassônicos.",
+        longDescription: "Uma solução IoT para monitoramento e análise de tráfego de pessoas em tempo real. Usa microcontrolador ESP32 com sensores ultrassônicos para contagem bidirecional, com log de dados em nuvem via REST API.",
         features: [
-          "Contagem de pessoas em tempo real",
-          "Conectividade Wi-Fi baseada em ESP32",
-          "Integração REST API para log de dados",
-          "Design de baixo consumo de energia"
+          "Contagem bidirecional de pessoas em tempo real",
+          "Conectividade Wi-Fi ESP32 para integração cloud",
+          "Log de dados e visualização via REST API",
+          "Design de baixo consumo para operação contínua"
         ]
       },
       {

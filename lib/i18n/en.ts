@@ -71,12 +71,12 @@ export const en = {
   experience: {
     items: [
       {
-        title: "Intern - Laboratório de Elétrica",
+        title: "Intern - Electrical Lab",
         company: "Centro Universitário Facens",
         description: [
-          "Technical support in assembling electrical and physics experiments, assisting professors and students.",
-          "Inventory management and material control using Excel to ensure resource availability for practical classes.",
-          "Standardization of experiment guides to improve internal organization."
+          "Provided technical support in assembling electrical and physics experiments, assisting professors and students in lab activities.",
+          "Managed inventory and material control using Excel spreadsheets, ensuring resource availability for practical classes.",
+          "Standardized experiment documentation and guides to improve internal lab organization."
         ]
       },
       {
@@ -139,35 +139,35 @@ export const en = {
     items: [
       {
         title: "Portal Animes",
-        description: "Responsive web app integrating external API (Jikan) for real-time anime data.",
-        longDescription: "A comprehensive anime discovery platform built with React and Next.js. Users can search for their favorite anime, view detailed information including synopsis, characters, and episodes, and see top-rated series.",
+        description: "Full-stack responsive web app with real-time anime data via Jikan API, featuring advanced search and filtering.",
+        longDescription: "A comprehensive anime discovery platform built with React and Next.js. Provides real-time data fetching, dynamic search with debounced filtering, detailed anime profiles with synopsis, characters and episodes, and a fully responsive grid layout.",
         features: [
-          "Real-time data fetching using Jikan API",
-          "Dynamic search and filtering capabilities",
+          "Real-time data fetching via Jikan REST API",
+          "Debounced search with dynamic filtering",
           "Responsive grid layout with CSS Modules",
-          "Detailed anime profile pages"
+          "Detailed anime profile pages with lazy-loaded content"
         ]
       },
       {
         title: "Voxel Terrain Engine",
-        description: "3D engine focused on performance and optimized rendering using InstancedMesh with procedural terrain generation.",
-        longDescription: "A high-performance 3D voxel engine running in the browser. It leverages Three.js and WebGL to render vast procedural terrains. The engine uses InstancedMesh for efficient rendering of blocks.",
+        description: "High-performance browser-based 3D engine with procedural terrain generation and optimized InstancedMesh rendering.",
+        longDescription: "A real-time 3D voxel engine running entirely in the browser. Leverages Three.js and WebGL with InstancedMesh for GPU-optimized block rendering, procedural terrain via Perlin Noise, and first-person camera controls.",
         features: [
-          "Procedural terrain generation using Perlin Noise",
-          "Optimized rendering with InstancedMesh",
-          "First-person camera controls",
-          "Dynamic chunk loading and unloading"
+          "Procedural terrain generation with Perlin Noise",
+          "GPU-optimized rendering via InstancedMesh",
+          "First-person camera with pointer lock controls",
+          "Dynamic chunk loading/unloading for performance"
         ]
       },
       {
         title: "IoT Crowd Monitoring",
-        description: "Hardware prototype to predict crowd levels using ultrasonic sensors and ESP32.",
-        longDescription: "An IoT solution designed to monitor and analyze foot traffic in real-time. Using an ESP32 microcontroller and ultrasonic sensors, the system counts people entering and exiting a space.",
+        description: "ESP32-based IoT prototype for real-time crowd density prediction using ultrasonic sensors.",
+        longDescription: "An IoT solution for real-time foot traffic monitoring and analysis. Uses an ESP32 microcontroller paired with ultrasonic sensors to count people entering and exiting a space, with cloud data logging via REST API.",
         features: [
-          "Real-time people counting with ultrasonic sensors",
-          "ESP32-based Wi-Fi connectivity",
-          "REST API integration for data logging",
-          "Low-power consumption design"
+          "Real-time bidirectional people counting",
+          "ESP32 Wi-Fi connectivity for cloud integration",
+          "REST API data logging and visualization",
+          "Low-power design for extended deployment"
         ]
       },
       {

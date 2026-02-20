@@ -104,13 +104,26 @@ export function Navbar() {
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-300 ${
-                  activeSection === id
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                }`}
+                className="relative rounded-full px-3 py-1.5 text-xs font-medium transition-colors duration-200"
               >
-                {sectionLabels[id]}
+                {activeSection === id && (
+                  <motion.span
+                    layoutId="navbar-pill"
+                    className="absolute inset-0 rounded-full bg-primary shadow-sm"
+                    transition={{
+                      type: "spring",
+                      stiffness: 350,
+                      damping: 30,
+                    }}
+                  />
+                )}
+                <span className={`relative z-10 ${
+                  activeSection === id
+                    ? "text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}>
+                  {sectionLabels[id]}
+                </span>
               </button>
             ))}
           </div>

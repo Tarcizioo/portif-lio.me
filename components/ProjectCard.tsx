@@ -61,9 +61,10 @@ export default function ProjectCard({
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
+          whileHover={{ y: -4, transition: { duration: 0.25 } }}
           className={`h-full ${isComingSoon ? "cursor-default" : "cursor-pointer"}`}
         >
-          <Card className="h-full group flex flex-col overflow-hidden border-border bg-card transition-all hover:border-foreground/20 hover:shadow-lg">
+          <Card className="h-full group flex flex-col overflow-hidden border-border bg-card transition-all duration-300 hover:border-foreground/20 hover:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.3)]">
             {/* Project Image Placeholder */}
             <div className="relative h-48 w-full overflow-hidden bg-[#1c1c1c]">
               {/* ... existing image logic ... */}

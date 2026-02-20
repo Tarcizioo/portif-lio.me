@@ -98,3 +98,14 @@
   border-right: 2px solid hsl(var(--primary));
   animation: blink-caret 0.75s step-end infinite;
 }
+
+/* Project card image shimmer on hover */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Divider line subtle entrance */
+.border-dashed {
+  transition: opacity 0.5s ease;
+}
