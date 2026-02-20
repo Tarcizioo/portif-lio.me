@@ -21,21 +21,21 @@ import {
 import { useLanguage } from "@/components/LanguageContext"
 import { siteConfig } from "@/lib/data"
 
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
-})
-
 export default function ContactForm() {
   const { t } = useLanguage()
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const formSchema = z.object({
+    name: z.string().min(2, {
+      message: t.contact.validation.nameMin,
+    }),
+    email: z.string().email({
+      message: t.contact.validation.emailInvalid,
+    }),
+    message: z.string().min(10, {
+      message: t.contact.validation.messageMin,
+    }),
+  })
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

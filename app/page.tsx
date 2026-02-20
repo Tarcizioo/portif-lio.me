@@ -5,6 +5,7 @@ import ExperienceItem from "@/components/ExperienceItem"
 import ProjectCard from "@/components/ProjectCard"
 import Skills from "@/components/Skills"
 import Education from "@/components/Education"
+import AboutMe from "@/components/AboutMe"
 import Footer from "@/components/Footer"
 import ContactForm from "@/components/ContactForm"
 import { TechStack } from "@/components/TechStack"
@@ -37,6 +38,8 @@ export default function Home() {
         <TechStack />
 
         <div className="px-6 md:px-12 py-8">
+            <AboutMe />
+
             <div className="my-12 border-t border-dashed border-border/50" />
             
             <section id="experience" className="mb-24 scroll-mt-20">

@@ -7,6 +7,14 @@ export const pt = {
     socials: "Minhas redes sociais",
     roles: ["Desenvolvedor Front-end", "UI Designer", "Criador Web", "Explorador IoT"]
   },
+  about: {
+    title: "Sobre Mim",
+    bio: "Olá! Sou o Tarcizio — estudante de Engenharia da Computação apaixonado por construir experiências digitais bonitas e funcionais. Adoro transformar ideias em realidade e sempre busco aprender coisas novas.",
+    interests: {
+      title: "O Que Me Interessa",
+      items: ["UI/UX Design", "IoT & Sistemas Embarcados", "Aprendizado Contínuo", "Café & Código", "Desenhar", "Games"]
+    }
+  },
   section: {
     experience: "Experiência Profissional",
     projects: "Projetos Selecionados",
@@ -50,7 +58,15 @@ export const pt = {
   },
   footer: {
     rights: "Todos os direitos reservados.",
-    quote: "\"Simplicidade é a sofisticação suprema.\""
+    quote: "\"Simplicidade é a sofisticação suprema.\"",
+    builtWith: "Feito com",
+    nav: {
+      experience: "Experiência",
+      projects: "Projetos",
+      skills: "Habilidades",
+      education: "Educação",
+      contact: "Contato"
+    }
   },
   experience: {
     items: [
@@ -82,7 +98,12 @@ export const pt = {
     submit: "Enviar Mensagem",
     sending: "Enviando...",
     success: "Mensagem enviada com sucesso!",
-    successDesc: "Obrigado pelo contato. Retornarei em breve."
+    successDesc: "Obrigado pelo contato. Retornarei em breve.",
+    validation: {
+      nameMin: "O nome deve ter pelo menos 2 caracteres.",
+      emailInvalid: "Por favor, insira um email válido.",
+      messageMin: "A mensagem deve ter pelo menos 10 caracteres."
+    }
   },
   command: {
     search: "Digite um comando ou busque...",
@@ -101,6 +122,7 @@ export const pt = {
     goToExperience: "Ir para Experiência",
     goToProjects: "Ir para Projetos",
     goToSkills: "Ir para Habilidades",
+    goToEducation: "Ir para Educação",
     goToContact: "Ir para Contato"
   },
   project: {

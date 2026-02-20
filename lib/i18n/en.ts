@@ -7,6 +7,14 @@ export const en = {
     socials: "Here are my socials",
     roles: ["Front-end Developer", "UI Designer", "Web Creator", "IoT Explorer"]
   },
+  about: {
+    title: "About Me",
+    bio: "Hey! I'm Tarcizio — a Computer Engineering student with a passion for building beautiful and functional digital experiences. I love turning ideas into reality and I'm always looking to learn new things.",
+    interests: {
+      title: "What I'm Into",
+      items: ["UI/UX Design", "IoT & Embedded Systems", "Continuous Learning", "Coffee & Code", "Drawing", "Games"]
+    }
+  },
   section: {
     experience: "Work Experience",
     projects: "Selected Projects",
@@ -50,7 +58,15 @@ export const en = {
   },
   footer: {
     rights: "All rights reserved.",
-    quote: "\"Simplicity is the ultimate sophistication.\""
+    quote: "\"Simplicity is the ultimate sophistication.\"",
+    builtWith: "Built with",
+    nav: {
+      experience: "Experience",
+      projects: "Projects",
+      skills: "Skills",
+      education: "Education",
+      contact: "Contact"
+    }
   },
   experience: {
     items: [
@@ -82,7 +98,12 @@ export const en = {
     submit: "Send Message",
     sending: "Sending...",
     success: "Message sent successfully!",
-    successDesc: "Thanks for reaching out. I'll get back to you soon."
+    successDesc: "Thanks for reaching out. I'll get back to you soon.",
+    validation: {
+      nameMin: "Name must be at least 2 characters.",
+      emailInvalid: "Please enter a valid email address.",
+      messageMin: "Message must be at least 10 characters."
+    }
   },
   command: {
     search: "Type a command or search...",
@@ -101,6 +122,7 @@ export const en = {
     goToExperience: "Go to Experience",
     goToProjects: "Go to Projects",
     goToSkills: "Go to Skills",
+    goToEducation: "Go to Education",
     goToContact: "Go to Contact"
   },
   project: {

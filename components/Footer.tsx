@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail, Heart } from "lucide-react"
 import Link from "next/link"
 import { siteConfig } from "@/lib/data"
 import { useLanguage } from "@/components/LanguageContext"
@@ -9,14 +9,64 @@ import { useLanguage } from "@/components/LanguageContext"
 export default function Footer() {
   const { t } = useLanguage()
 
+  const navLinks = [
+    { label: t.footer.nav.experience, id: "experience" },
+    { label: t.footer.nav.projects, id: "projects" },
+    { label: t.footer.nav.skills, id: "skills" },
+    { label: t.footer.nav.education, id: "education" },
+    { label: t.footer.nav.contact, id: "contact" },
+  ]
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id)
+    if (!el) return
+    const targetPosition = el.getBoundingClientRect().top + window.scrollY - 80
+    const startPosition = window.scrollY
+    const distance = targetPosition - startPosition
+    const duration = 800
+    let start: number | null = null
+
+    const easeInOutCubic = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+
+    const animation = (currentTime: number) => {
+      if (start === null) start = currentTime
+      const timeElapsed = currentTime - start
+      const progress = Math.min(timeElapsed / duration, 1)
+      window.scrollTo(0, startPosition + distance * easeInOutCubic(progress))
+      if (timeElapsed < duration) requestAnimationFrame(animation)
+    }
+
+    requestAnimationFrame(animation)
+  }
+
   return (
     <footer className="mt-24 border-t border-border pb-8 pt-8">
       <div className="mx-auto flex max-w-3xl flex-col gap-6 px-6">
+        {/* Quick Navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
+        >
+          {navLinks.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => scrollToSection(link.id)}
+              className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+            >
+              {link.label}
+            </button>
+          ))}
+        </motion.div>
+
         {/* Social Links */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ delay: 0.05 }}
           className="flex items-center justify-center gap-4"
         >
           <Link
@@ -54,7 +104,13 @@ export default function Footer() {
             {t.footer.quote}
           </p>
         </div>
+
+        {/* Built with */}
+        <p className="text-center text-xs text-muted-foreground/60">
+          {t.footer.builtWith} Next.js <Heart className="inline h-3 w-3 text-red-500 fill-red-500 mx-0.5" /> & Tailwind CSS
+        </p>
       </div>
     </footer>
   )
 }
+

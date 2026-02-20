@@ -13,7 +13,8 @@ import {
   Briefcase,
   Code,
   FolderKanban,
-  MessageSquare
+  MessageSquare,
+  GraduationCap
 } from "lucide-react"
 
 import {
@@ -100,6 +101,10 @@ export function CommandMenu() {
             <CommandItem onSelect={() => runCommand(() => scrollToSection("skills"))}>
               <Code className="mr-2 h-4 w-4" />
               <span>{t.command.goToSkills}</span>
+            </CommandItem>
+            <CommandItem onSelect={() => runCommand(() => scrollToSection("education"))}>
+              <GraduationCap className="mr-2 h-4 w-4" />
+              <span>{t.command.goToEducation}</span>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => scrollToSection("contact"))}>
               <MessageSquare className="mr-2 h-4 w-4" />
