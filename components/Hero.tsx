@@ -51,6 +51,9 @@ function useTypingAnimation(words: string[], typingSpeed = 100, deletingSpeed = 
 export default function Hero() {
   const { t } = useLanguage()
   const typedRole = useTypingAnimation(t.hero.roles)
+  const [isRealPhoto, setIsRealPhoto] = useState(false)
+
+  const profileImage = isRealPhoto ? "/images/real-profile.png" : "/images/profile-final.jpg"
 
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -98,31 +101,57 @@ export default function Hero() {
           className="flex flex-col gap-4 w-full"
         >
           <div className="flex items-center gap-4">
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="relative cursor-pointer group rounded-xl focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
-                  <Avatar className="h-28 w-28 rounded-xl border-2 border-border transition-transform group-hover:scale-105">
-                    <AvatarImage src="/images/profile-final.jpg" alt={siteConfig.name} className="rounded-xl object-cover" />
-                    <AvatarFallback className="rounded-xl">TP</AvatarFallback>
-                  </Avatar>
-                  <div className="absolute inset-0 rounded-xl bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-xs text-white font-medium">
-                    View
-                  </div>
-                  <span className="sr-only">View Profile Picture</span>
-                </button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-transparent border-none shadow-none">
-                 <DialogTitle className="sr-only">Profile Picture</DialogTitle>
-                 <div className="relative h-80 w-80 mx-auto rounded-xl overflow-hidden border-4 border-background">
-                    <Image 
-                      src="/images/profile-final.jpg" 
-                      alt={`${siteConfig.name} Profile`}
-                      fill 
-                      className="object-cover"
-                    />
-                 </div>
-              </DialogContent>
-            </Dialog>
+            <div className="relative">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="relative cursor-pointer group rounded-xl focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+                    <Avatar className="h-28 w-28 rounded-xl border-2 border-border transition-transform group-hover:scale-105 overflow-hidden">
+                      <motion.div
+                        key={profileImage}
+                        initial={{ opacity: 0, scale: 1.05 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="h-full w-full"
+                      >
+                        <AvatarImage src={profileImage} alt={siteConfig.name} className="rounded-xl object-cover" />
+                      </motion.div>
+                      <AvatarFallback className="rounded-xl">TP</AvatarFallback>
+                    </Avatar>
+                    <div className="absolute inset-0 rounded-xl bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-xs text-white font-medium">
+                      View
+                    </div>
+                    <span className="sr-only">View Profile Picture</span>
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-transparent border-none shadow-none">
+                   <DialogTitle className="sr-only">Profile Picture</DialogTitle>
+                   <div className="relative h-80 w-80 mx-auto rounded-xl overflow-hidden border-4 border-background">
+                      <Image 
+                        src={profileImage} 
+                        alt={`${siteConfig.name} Profile`}
+                        fill 
+                        className="object-cover"
+                      />
+                   </div>
+                </DialogContent>
+              </Dialog>
+
+              {/* Toggle photo button */}
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setIsRealPhoto(!isRealPhoto)}
+                className="absolute -bottom-1.5 -right-1.5 h-8 w-8 rounded-full bg-primary text-primary-foreground shadow-md border-2 border-background flex items-center justify-center transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring z-10"
+                title={isRealPhoto ? "Show avatar" : "Show real photo"}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5">
+                  <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                  <path d="M3 3v5h5" />
+                  <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+                  <path d="M16 21h5v-5" />
+                </svg>
+              </motion.button>
+            </div>
 
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
