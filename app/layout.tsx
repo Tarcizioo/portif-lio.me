@@ -20,6 +20,7 @@ import { LanguageProvider } from "@/components/LanguageContext";
 import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portif-liome.vercel.app"),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://your-domain.com", // TODO: Update with actual domain
+    url: "https://portif-liome.vercel.app",
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
