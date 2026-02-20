@@ -3,7 +3,9 @@ export const en = {
     role: "Front-end Developer",
     description: "Computer Engineering Student (5th Sem) focused on Front-end Development and Web Design. I create modern interfaces and explore IoT solutions.",
     cta: "Contact Me",
-    resume: "Download CV"
+    resume: "Download CV",
+    socials: "Here are my socials",
+    roles: ["Front-end Developer", "UI Designer", "Web Creator", "IoT Explorer"]
   },
   section: {
     experience: "Work Experience",
@@ -11,6 +13,21 @@ export const en = {
     skills: "Skills & Technologies",
     contact: "Let's Talk",
     about: "About Me"
+  },
+  skills: {
+    categories: [
+      { name: "Frontend & Web", items: ["JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Tailwind CSS", "HTML5/CSS3"] },
+      { name: "Hardware & IoT", items: ["ESP32", "Arduino", "Sensors", "Electronics Basics"] },
+      { name: "Graphics & Design", items: ["Three.js", "WebGL", "Figma", "Photoshop", "Web Design"] },
+      { name: "Tools & Others", items: ["Git", "GitHub", "VS Code", "SQL", "Excel (Dashboards)"] },
+    ]
+  },
+  footer: {
+    newsletter: "Subscribe to my newsletter",
+    newsletterDesc: "Get updates on my latest projects and articles.",
+    subscribe: "Subscribe",
+    rights: "All rights reserved.",
+    quote: "\"Simplicity is the ultimate sophistication.\""
   },
   experience: {
     items: [
@@ -50,20 +67,20 @@ export const en = {
     general: "General",
     socials: "Socials",
     theme: "Theme",
+    navigation: "Navigation",
     sendEmail: "Send Email",
     downloadCv: "Download CV",
     viewGithub: "View GitHub",
     viewLinkedin: "View LinkedIn",
     light: "Light",
     dark: "Dark",
-    system: "System"
+    system: "System",
+    goToExperience: "Go to Experience",
+    goToProjects: "Go to Projects",
+    goToSkills: "Go to Skills",
+    goToContact: "Go to Contact"
   },
   project: {
-    // viewGithub: "View GitHub", // Removed
-    // viewLinkedin: "View LinkedIn", // Removed
-    // light: "Light", // Removed
-    // dark: "Dark", // Removed
-    // system: "System", // Removed
     view: "View Project",
     source: "Source Code",
     details: "View Details",
@@ -117,3 +134,4 @@ export const en = {
     ]
   }
 }
+

@@ -27,39 +27,9 @@
   }
 
   .dark {
-    --background: 245 20% 4.7%; /* Converted #0e0d09 to HSL approx: 245 20% 4.7% ... actually wait, manual conversion: #0e0d09 is very dark. 
-    Hue: ~200-240 (blue-ish), Sat: low, Light: low. 
-    RGB: 14, 13, 9. 
-    Let's just use hex or calculate. 
-    Tailwind uses HSL variables usually if defined as numbers... but the config uses `hsl(var(--background))`. 
-    So I must put space separated HSL values. 
-    #0e0d09 -> R14 G13 B9. 
-    Max=14, Min=9. L = (14+9)/2/255 = 0.045 = 4.5%. 
-    S = (14-9)/(14+9) = 5/23 = 0.21 = 21% (if L<0.5). 
-    H: (13-9)/(14-9) ... roughly yellow/orange side? No, R is highest. 
-    Let's just use the hex directly in the variable and update tailwind config to NOT wrap in hsl() if I can, OR convert perfectly.
-    Actually, I'll update the variable to HSL values. 
-    R14 G13 B9. 
-    H = 48deg, S = 22%, L = 5%. 
-    48 22% 5%.
-    Check: 48 is yellow/orange. 
-    Wait, R=14, G=13, B=9. 
-    Red is dominant. 
-    */
-    --background: 48 22% 5%; /* Approximate #0e0d09 */
-    /* Actually let's just use the hex in the variable and change tailwind config to simply var(--background) if possible, 
-    but tailwind config expects numbers for opacity components. 
-    Better: keep HSL. 
-    Let's trust my HSL approx or use a tool. 
-    Let's use a very dark grey/black. 0 0% 5% is #0d0d0d. 
-    User said #0e0d09. 
-    That is R14(0E) G13(0D) B9(09). 
-    Warm black. 
-    HSL: 48 21.7% 4.5%.
-    */
     --background: 48 22% 4.5%;
     --foreground: 0 0% 98%;
-    --card: 48 22% 4.5%; /* Match background for seamless, or slightly lighter? Ref uses borders. */
+    --card: 48 22% 4.5%;
     --card-foreground: 0 0% 98%;
     --popover: 48 22% 4.5%;
     --popover-foreground: 0 0% 98%;
@@ -73,7 +43,7 @@
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%; /* Maybe make borders clearer for the "structured" look */
+    --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
@@ -94,9 +64,37 @@
   }
 }
 
-/* Custom Utilities for the minimalist look */
+/* Custom Utilities */
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Timeline dot pulse animation */
+@keyframes timeline-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4); }
+  50% { box-shadow: 0 0 0 6px hsl(var(--primary) / 0); }
+}
+.animate-timeline-pulse {
+  animation: timeline-pulse 2s ease-in-out infinite;
+}
+
+/* Skill badge glow on hover */
+.skill-glow {
+  transition: all 0.3s ease;
+}
+.skill-glow:hover {
+  box-shadow: 0 0 15px -3px hsl(var(--primary) / 0.3);
+  transform: translateY(-2px);
+}
+
+/* Typing cursor blink */
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: hsl(var(--primary)); }
+}
+.typing-cursor {
+  border-right: 2px solid hsl(var(--primary));
+  animation: blink-caret 0.75s step-end infinite;
 }

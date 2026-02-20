@@ -2,19 +2,18 @@
 
 import * as React from "react"
 import {
-  Calculator,
-  Calendar,
-  CreditCard,
-  Settings,
-  Smile,
-  User,
   Search,
   Github,
   Linkedin,
   Mail,
   Moon,
   Sun,
-  Laptop
+  Laptop,
+  User,
+  Briefcase,
+  Code,
+  FolderKanban,
+  MessageSquare
 } from "lucide-react"
 
 import {
@@ -27,14 +26,12 @@ import {
   CommandSeparator,
 } from "@/components/ui/command"
 import { useTheme } from "next-themes"
-import { useRouter } from "next/navigation"
 import { siteConfig } from "@/lib/data"
 import { useLanguage } from "@/components/LanguageContext"
 
 export function CommandMenu() {
   const [open, setOpen] = React.useState(false)
   const { setTheme } = useTheme()
-  const router = useRouter()
   const { t } = useLanguage()
 
   React.useEffect(() => {
@@ -54,6 +51,29 @@ export function CommandMenu() {
     command()
   }, [])
 
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id)
+    if (!el) return
+    const targetPosition = el.getBoundingClientRect().top + window.scrollY - 80
+    const startPosition = window.scrollY
+    const distance = targetPosition - startPosition
+    const duration = 800
+    let start: number | null = null
+
+    const easeInOutCubic = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+
+    const animation = (currentTime: number) => {
+      if (start === null) start = currentTime
+      const timeElapsed = currentTime - start
+      const progress = Math.min(timeElapsed / duration, 1)
+      window.scrollTo(0, startPosition + distance * easeInOutCubic(progress))
+      if (timeElapsed < duration) requestAnimationFrame(animation)
+    }
+
+    requestAnimationFrame(animation)
+  }
+
   return (
     <>
       <p className="fixed bottom-4 left-4 z-50 text-sm text-muted-foreground bg-background/80 backdrop-blur-sm px-2 py-1 rounded-md border shadow-sm hidden md:block pointer-events-none">
@@ -68,6 +88,25 @@ export function CommandMenu() {
         <CommandInput placeholder={t.command.search} />
         <CommandList>
           <CommandEmpty>{t.command.noResults}</CommandEmpty>
+          <CommandGroup heading={t.command.navigation}>
+            <CommandItem onSelect={() => runCommand(() => scrollToSection("experience"))}>
+              <Briefcase className="mr-2 h-4 w-4" />
+              <span>{t.command.goToExperience}</span>
+            </CommandItem>
+            <CommandItem onSelect={() => runCommand(() => scrollToSection("projects"))}>
+              <FolderKanban className="mr-2 h-4 w-4" />
+              <span>{t.command.goToProjects}</span>
+            </CommandItem>
+            <CommandItem onSelect={() => runCommand(() => scrollToSection("skills"))}>
+              <Code className="mr-2 h-4 w-4" />
+              <span>{t.command.goToSkills}</span>
+            </CommandItem>
+            <CommandItem onSelect={() => runCommand(() => scrollToSection("contact"))}>
+              <MessageSquare className="mr-2 h-4 w-4" />
+              <span>{t.command.goToContact}</span>
+            </CommandItem>
+          </CommandGroup>
+          <CommandSeparator />
           <CommandGroup heading={t.command.general}>
             <CommandItem onSelect={() => runCommand(() => window.open(`mailto:${siteConfig.email}`, '_self'))}>
               <Mail className="mr-2 h-4 w-4" />

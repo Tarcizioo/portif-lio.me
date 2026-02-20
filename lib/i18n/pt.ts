@@ -3,7 +3,9 @@ export const pt = {
     role: "Desenvolvedor Front-end",
     description: "Estudante de Engenharia da Computação (5º Sem) focado em Desenvolvimento Front-end e Web Design. Crio interfaces modernas e exploro soluções em IoT.",
     cta: "Entre em Contato",
-    resume: "Baixar CV"
+    resume: "Baixar CV",
+    socials: "Minhas redes sociais",
+    roles: ["Desenvolvedor Front-end", "UI Designer", "Criador Web", "Explorador IoT"]
   },
   section: {
     experience: "Experiência Profissional",
@@ -11,6 +13,21 @@ export const pt = {
     skills: "Habilidades & Tecnologias",
     contact: "Vamos Conversar",
     about: "Sobre Mim"
+  },
+  skills: {
+    categories: [
+      { name: "Frontend & Web", items: ["JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Tailwind CSS", "HTML5/CSS3"] },
+      { name: "Hardware & IoT", items: ["ESP32", "Arduino", "Sensores", "Eletrônica Básica"] },
+      { name: "Gráficos & Design", items: ["Three.js", "WebGL", "Figma", "Photoshop", "Web Design"] },
+      { name: "Ferramentas & Outros", items: ["Git", "GitHub", "VS Code", "SQL", "Excel (Dashboards)"] },
+    ]
+  },
+  footer: {
+    newsletter: "Assine minha newsletter",
+    newsletterDesc: "Receba atualizações sobre meus projetos e artigos.",
+    subscribe: "Assinar",
+    rights: "Todos os direitos reservados.",
+    quote: "\"Simplicidade é a sofisticação suprema.\""
   },
   experience: {
     items: [
@@ -50,13 +67,18 @@ export const pt = {
     general: "Geral",
     socials: "Redes Sociais",
     theme: "Tema",
+    navigation: "Navegação",
     sendEmail: "Enviar Email",
     downloadCv: "Baixar CV",
     viewGithub: "Ver GitHub",
     viewLinkedin: "Ver LinkedIn",
     light: "Claro",
     dark: "Escuro",
-    system: "Sistema"
+    system: "Sistema",
+    goToExperience: "Ir para Experiência",
+    goToProjects: "Ir para Projetos",
+    goToSkills: "Ir para Habilidades",
+    goToContact: "Ir para Contato"
   },
   project: {
     view: "Ver Projeto",

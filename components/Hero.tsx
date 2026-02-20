@@ -12,9 +12,45 @@ import Image from "next/image"
 import { GithubCard, LinkedinCard } from "@/components/SocialCards"
 import { socialLinks, siteConfig } from "@/lib/data"
 import { useLanguage } from "@/components/LanguageContext"
+import { useState, useEffect, useCallback } from "react"
+
+function useTypingAnimation(words: string[], typingSpeed = 100, deletingSpeed = 60, pauseTime = 2000) {
+  const [displayText, setDisplayText] = useState("")
+  const [wordIndex, setWordIndex] = useState(0)
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  const tick = useCallback(() => {
+    const currentWord = words[wordIndex]
+
+    if (isDeleting) {
+      setDisplayText(currentWord.substring(0, displayText.length - 1))
+    } else {
+      setDisplayText(currentWord.substring(0, displayText.length + 1))
+    }
+  }, [displayText, isDeleting, wordIndex, words])
+
+  useEffect(() => {
+    const currentWord = words[wordIndex]
+    let timeout: NodeJS.Timeout
+
+    if (!isDeleting && displayText === currentWord) {
+      timeout = setTimeout(() => setIsDeleting(true), pauseTime)
+    } else if (isDeleting && displayText === "") {
+      setIsDeleting(false)
+      setWordIndex((prev) => (prev + 1) % words.length)
+    } else {
+      timeout = setTimeout(tick, isDeleting ? deletingSpeed : typingSpeed)
+    }
+
+    return () => clearTimeout(timeout)
+  }, [displayText, isDeleting, wordIndex, words, tick, typingSpeed, deletingSpeed, pauseTime])
+
+  return displayText
+}
 
 export default function Hero() {
   const { t } = useLanguage()
+  const typedRole = useTypingAnimation(t.hero.roles)
 
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -23,8 +59,8 @@ export default function Hero() {
 
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
     const startPosition = window.scrollY;
-    const distance = targetPosition - startPosition; // Scroll to exact top of section
-    const duration = 1000; // 1 second duration for "premium" feel
+    const distance = targetPosition - startPosition;
+    const duration = 1000;
     let start: number | null = null;
 
     const easeInOutCubic = (t: number) => {
@@ -61,7 +97,6 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="flex flex-col gap-4 w-full"
         >
-          {/* ... existing profile code ... */}
           <div className="flex items-center gap-4">
             <Dialog>
               <DialogTrigger asChild>
@@ -94,7 +129,9 @@ export default function Hero() {
                 <h1 className="text-3xl font-bold tracking-tight">{siteConfig.name}</h1>
                 <BadgeCheck className="h-6 w-6 text-blue-500 fill-blue-500/10" />
               </div>
-              <p className="text-muted-foreground font-medium">{t.hero.role}</p>
+              <p className="text-muted-foreground font-medium h-6">
+                <span className="typing-cursor pr-1">{typedRole}</span>
+              </p>
             </div>
           </div>
 
@@ -132,7 +169,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-           <p className="w-full text-sm font-semibold text-muted-foreground mb-1">Here are my socials</p>
+           <p className="w-full text-sm font-semibold text-muted-foreground mb-1">{t.hero.socials}</p>
            {socialLinks.map((social) => (
              <HoverCard key={social.label} openDelay={0} closeDelay={0}>
                <HoverCardTrigger asChild>

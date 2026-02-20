@@ -1,3 +1,5 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
 import Image from "next/image"
@@ -31,7 +33,7 @@ export default function ExperienceItem({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="relative border-l border-border pl-6 pb-12 last:pb-0"
     >
-      <div className="absolute -left-1.5 top-0 h-3 w-3 rounded-full bg-border" />
+      <div className="absolute -left-1.5 top-0 h-3 w-3 rounded-full bg-primary animate-timeline-pulse" />
       
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2">
          <div className="flex items-start gap-4">
