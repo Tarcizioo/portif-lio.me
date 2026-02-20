@@ -57,7 +57,12 @@ export const metadata: Metadata = {
     creator: "@yourhandle", // TODO: Update with actual handle
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/images/apple-touch-icon.png",
   },
 };
 
