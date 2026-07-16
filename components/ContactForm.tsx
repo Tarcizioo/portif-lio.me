@@ -19,8 +19,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { useLanguage } from "@/components/LanguageContext"
-import { siteConfig } from "@/lib/data"
-
+ 
 export default function ContactForm() {
   const { t } = useLanguage()
   const [isSubmitting, setIsSubmitting] = useState(false)
