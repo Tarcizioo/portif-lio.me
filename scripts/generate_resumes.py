@@ -36,7 +36,7 @@ RESUMES = {
         "summary": (
             "Estudante de Engenharia da Computação e desenvolvedor frontend com experiência "
             "na criação de produtos web completos. Atuo com React, TypeScript, Firebase, "
-            "GraphQL, testes automatizados e automação de processos."
+            "GraphQL, testes automatizados e automações com Google Apps Script."
         ),
         "section": {
             "summary": "RESUMO PROFISSIONAL",
@@ -54,13 +54,13 @@ RESUMES = {
                 "bullets": [
                     "Apoio a demandas técnicas, administrativas e de tecnologia da equipe ChemFeed.",
                     "Criação de documentação e fluxogramas; acompanhamento de manutenções, cotações, fornecedores e testes de materiais.",
-                    "Desenvolvimento de automações, integrações de dados e relatórios para otimizar processos internos.",
+                    "Desenvolvimento de aplicações web internas e automações com Google Apps Script, JavaScript, HTML e CSS.",
                 ],
             },
             {
                 "role": "Estagiário - Laboratório de Elétrica",
                 "company": "Centro Universitário Facens",
-                "date": "Ago/2024 - Atual",
+                "date": "Ago/2024 - Mar/2026",
                 "location": "Sorocaba/SP",
                 "bullets": [
                     "Suporte técnico em atividades práticas de elétrica e física para professores e estudantes.",
@@ -97,7 +97,7 @@ RESUMES = {
         "skills": [
             "<b>Frontend:</b> TypeScript, JavaScript, React, Next.js, React Router, Tailwind CSS.",
             "<b>Dados e backend:</b> Firebase Auth, Cloud Firestore, GraphQL, APIs REST, TanStack Query e SQL.",
-            "<b>Qualidade e ferramentas:</b> Vitest, Testing Library, GitHub Actions, Git, GitHub, Figma, Three.js e WebGL.",
+            "<b>Automação, qualidade e ferramentas:</b> Google Apps Script, Google Workspace, Vitest, Testing Library, GitHub Actions, Git, GitHub, Figma, Three.js e WebGL.",
         ],
         "education": [
             "<b>Engenharia da Computação</b> - Centro Universitário Facens | Fev/2024 - Nov/2028 (previsão)",
@@ -111,7 +111,7 @@ RESUMES = {
         "summary": (
             "Computer Engineering student and frontend developer experienced in building "
             "complete web products. I work with React, TypeScript, Firebase, GraphQL, "
-            "automated testing, and process automation."
+            "automated testing, and Google Apps Script automation."
         ),
         "section": {
             "summary": "PROFESSIONAL SUMMARY",
@@ -129,13 +129,13 @@ RESUMES = {
                 "bullets": [
                     "Support technical, administrative, and technology initiatives for the ChemFeed team.",
                     "Create documentation and flowcharts; track maintenance, quotations, suppliers, and material tests.",
-                    "Build process automations, data integrations, and reports to improve internal workflows.",
+                    "Build internal web applications and automations with Google Apps Script, JavaScript, HTML, and CSS.",
                 ],
             },
             {
                 "role": "Electrical Laboratory Intern",
                 "company": "Centro Universitário Facens",
-                "date": "Aug/2024 - Present",
+                "date": "Aug/2024 - Mar/2026",
                 "location": "Sorocaba/SP",
                 "bullets": [
                     "Provided technical support for practical electrical and physics activities.",
@@ -172,7 +172,7 @@ RESUMES = {
         "skills": [
             "<b>Frontend:</b> TypeScript, JavaScript, React, Next.js, React Router, and Tailwind CSS.",
             "<b>Data and backend:</b> Firebase Auth, Cloud Firestore, GraphQL, REST APIs, TanStack Query, and SQL.",
-            "<b>Quality and tools:</b> Vitest, Testing Library, GitHub Actions, Git, GitHub, Figma, Three.js, and WebGL.",
+            "<b>Automation, quality, and tools:</b> Google Apps Script, Google Workspace, Vitest, Testing Library, GitHub Actions, Git, GitHub, Figma, Three.js, and WebGL.",
         ],
         "education": [
             "<b>Computer Engineering</b> - Centro Universitário Facens | Feb/2024 - Nov/2028 (expected)",
@@ -281,6 +281,7 @@ def build_resume(lang, data):
 
     contacts = (
         '<link href="mailto:tarcizioneto10@gmail.com" color="#0B72B9">tarcizioneto10@gmail.com</link>'
+        ' | <link href="tel:+5548999299213" color="#0B72B9">(48) 9 9929-9213</link>'
         ' | <link href="https://portif-liome.vercel.app" color="#0B72B9">portif-liome.vercel.app</link>'
         ' | <link href="https://www.linkedin.com/in/tarcizio-pereira-neto-135299279" color="#0B72B9">LinkedIn</link>'
         ' | <link href="https://github.com/Tarcizioo" color="#0B72B9">GitHub</link>'
