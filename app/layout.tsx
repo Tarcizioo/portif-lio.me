@@ -30,10 +30,12 @@ export const metadata: Metadata = {
     "Next.js",
     "React",
     "Tailwind CSS",
-    "Server Components",
+    "TypeScript",
+    "GraphQL",
+    "Firebase",
     "Portfolio",
     "Tarcizio",
-    "Front-end",
+    "Frontend",
   ],
   authors: [
     {
@@ -44,17 +46,16 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "pt_BR",
     url: "https://portif-liome.vercel.app",
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    creator: "@yourhandle", // TODO: Update with actual handle
   },
   icons: {
     icon: [
@@ -72,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <body
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans antialiased selection:bg-primary selection:text-primary-foreground`}
