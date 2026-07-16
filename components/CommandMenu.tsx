@@ -33,7 +33,7 @@ import { useLanguage } from "@/components/LanguageContext"
 export function CommandMenu() {
   const [open, setOpen] = React.useState(false)
   const { setTheme } = useTheme()
-  const { t } = useLanguage()
+  const { language, t } = useLanguage()
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -117,7 +117,7 @@ export function CommandMenu() {
               <Mail className="mr-2 h-4 w-4" />
               <span>{t.command.sendEmail}</span>
             </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => window.open(siteConfig.links.resume, '_blank'))}>
+            <CommandItem onSelect={() => runCommand(() => window.open(language === "pt" ? siteConfig.links.resumePt : siteConfig.links.resumeEn, '_blank'))}>
               <User className="mr-2 h-4 w-4" />
               <span>{t.command.downloadCv}</span>
             </CommandItem>
