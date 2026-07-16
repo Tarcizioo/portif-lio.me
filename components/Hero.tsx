@@ -131,7 +131,8 @@ export default function Hero() {
                       <Image 
                         src={profileImage} 
                         alt={`${siteConfig.name} Profile`}
-                        fill 
+                        fill
+                        sizes="320px"
                         className="object-cover"
                       />
                    </div>
