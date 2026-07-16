@@ -9,7 +9,7 @@ export const pt = {
   },
   about: {
     title: "Sobre Mim",
-    bio: "Sou estudante de Engenharia da Computação e desenvolvedor frontend com foco em React, TypeScript e produtos digitais completos. Na Veolia/ChemFeed, apoio demandas técnicas e crio automações e integrações de dados para tornar processos internos mais eficientes. Em projetos, desenvolvi o Portal Animes V2, uma PWA social com GraphQL, Firebase e 47 testes automatizados, além de uma engine voxel 3D com Three.js e WebGL.",
+    bio: "Sou estudante de Engenharia da Computação e desenvolvedor frontend com foco em React, TypeScript e produtos digitais completos. Na Veolia/ChemFeed, apoio demandas técnicas e desenvolvo aplicações web internas e automações com Google Apps Script, JavaScript, HTML e CSS, sempre respeitando a confidencialidade corporativa. Em projetos pessoais, desenvolvi o Portal Animes V2, uma PWA social com GraphQL, Firebase e 47 testes automatizados, além de uma engine voxel 3D com Three.js e WebGL.",
     interests: {
       title: "Áreas de atuação",
       items: ["Arquitetura Frontend", "UI/UX & Acessibilidade", "Automação de Processos", "Qualidade & Testes", "Computação Gráfica", "IoT"]
@@ -26,7 +26,7 @@ export const pt = {
   skills: {
     categories: [
       { name: "Frontend & Produto", items: ["TypeScript", "JavaScript", "React", "Next.js", "React Router", "Tailwind CSS"] },
-      { name: "Dados & Backend", items: ["Firebase Auth", "Cloud Firestore", "GraphQL", "APIs REST", "TanStack Query", "SQL"] },
+      { name: "Dados & Backend", items: ["Firebase Auth", "Cloud Firestore", "GraphQL", "APIs REST", "TanStack Query", "SQL", "Google Apps Script", "Google Workspace"] },
       { name: "Qualidade & Entrega", items: ["Vitest", "Testing Library", "GitHub Actions", "PWA", "Acessibilidade", "Design Responsivo"] },
       { name: "Engenharia & Criação", items: ["Three.js", "WebGL", "Figma", "ESP32", "Arduino", "Git & GitHub"] },
     ]
@@ -79,14 +79,14 @@ export const pt = {
           "Atuação interdisciplinar no suporte a demandas técnicas, administrativas e de tecnologia da equipe ChemFeed.",
           "Criação e atualização de documentação técnica e fluxogramas para apoiar rotinas comerciais e operacionais.",
           "Acompanhamento de manutenções, cotações de equipamentos, relatórios de entrega, fornecedores e testes de materiais.",
-          "Desenvolvimento de automações, integrações de dados e relatórios para reduzir trabalho manual e otimizar processos internos."
+          "Desenvolvimento de aplicações web internas e automações com Google Apps Script, JavaScript, HTML e CSS, com atenção a acesso, confiabilidade e confidencialidade."
         ],
-        tags: ["Automação de Processos", "SAP ERP", "Integração de Dados", "Documentação Técnica"]
+        tags: ["Google Apps Script", "JavaScript", "Google Workspace", "Automação de Processos", "SAP ERP"]
       },
       {
         title: "Estagiário - Laboratório de Elétrica",
         company: "Centro Universitário Facens",
-        period: "Ago/2024 — atual",
+        period: "Ago/2024 — Mar/2026",
         location: "Sorocaba/SP",
         description: [
           "Suporte técnico em atividades práticas de elétrica e física para professores e estudantes.",
