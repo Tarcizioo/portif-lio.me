@@ -24,21 +24,22 @@ export const experience = [
   {
     title: "ChemFeed Intern",
     company: "Veolia | ChemFeed",
+    logo: "/images/veolia-logo.jpg",
     period: "03/2026 - Present",
     location: "Sorocaba/SP · On-site",
     description: [
       "Support technical, administrative, and technology initiatives for the ChemFeed team.",
       "Create and maintain technical documentation and process flowcharts for commercial and operational routines.",
       "Track maintenance, equipment quotations, delivery reports, suppliers, and material tests.",
-      "Develop process automations, data integrations, and reports to reduce manual work and improve team efficiency."
+      "Build internal web applications and automations with Google Apps Script, JavaScript, HTML, and CSS while respecting corporate access and confidentiality requirements."
     ],
-    tags: ["Process Automation", "SAP ERP", "Data Integration", "Technical Documentation"]
+    tags: ["Google Apps Script", "JavaScript", "Google Workspace", "Process Automation", "SAP ERP"]
   },
   {
     title: "Electrical Laboratory Intern",
     company: "Centro Universitário Facens",
     logo: "/images/facens-logo.png",
-    period: "08/2024 - Present",
+    period: "08/2024 - 03/2026",
     location: "Sorocaba/SP",
     description: [
       "Provided technical support in electrical and physics laboratory activities for professors and students.",
@@ -124,4 +125,5 @@ export const techStack = [
   { name: "Tailwind CSS", icon: "tailwind" },
   { name: "Three.js", icon: "threejs" },
   { name: "Git & GitHub", icon: "git" },
+  { name: "Google Apps Script", icon: "google-apps-script" },
 ]
