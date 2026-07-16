@@ -2,8 +2,7 @@
 
 import * as React from "react"
 import {
-  Search,
-  Github,
+   Github,
   Linkedin,
   Mail,
   Moon,
