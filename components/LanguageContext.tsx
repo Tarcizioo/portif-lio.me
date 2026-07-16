@@ -20,12 +20,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const savedLang = localStorage.getItem("language") as Language
-    if (savedLang) {
-      setLanguage(savedLang)
-    } else {
-      const browserLang = navigator.language.startsWith("pt") ? "pt" : "en"
-      setLanguage(browserLang)
-    }
+    const browserLang = navigator.language.startsWith("pt") ? "pt" : "en"
+    const nextLanguage = savedLang === "pt" || savedLang === "en" ? savedLang : browserLang
+    const frame = window.requestAnimationFrame(() => setLanguage(nextLanguage))
+
+    return () => window.cancelAnimationFrame(frame)
   }, [])
 
   useEffect(() => {
