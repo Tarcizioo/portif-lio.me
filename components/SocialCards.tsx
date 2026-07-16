@@ -2,8 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { MapPin, Users } from "lucide-react"
-import Image from "next/image"
-
+ 
 export function GithubCard() {
   return (
     <div className="flex flex-col gap-3 p-4 bg-[#0d1117] text-white rounded-md border border-[#30363d] font-sans w-full h-full">
@@ -21,15 +20,13 @@ export function GithubCard() {
       </div>
       
       <div className="text-sm text-[#c9d1d9] leading-snug">
-        Computer Engineering Student (5th Sem). 🎨 Front-end Enthusiast focused on UI/Design & 3D Web.
+        Frontend developer building complete products with React, TypeScript, GraphQL, and Firebase.
       </div>
 
       <div className="flex flex-col gap-1 mt-1">
         <div className="flex items-center gap-2 text-xs text-[#8b949e]">
            <Users className="w-3.5 h-3.5" />
-           <span><strong className="text-[#c9d1d9] font-semibold">0</strong> followers</span>
-           <span>·</span>
-           <span><strong className="text-[#c9d1d9] font-semibold">1</strong> following</span>
+           <span>React · TypeScript · Firebase · GraphQL</span>
         </div>
         <div className="flex items-center gap-2 text-xs text-[#8b949e]">
            <MapPin className="w-3.5 h-3.5" />
@@ -65,7 +62,7 @@ export function LinkedinCard() {
              </div>
              
              <span className="text-xs text-muted-foreground leading-snug">
-                Desenvolvedor Front-end | UX/UI Designer
+                Desenvolvedor Frontend | React, TypeScript, Firebase e GraphQL
              </span>
 
              <div className="flex items-center gap-1 text-[10px] text-muted-foreground mt-1">
@@ -76,11 +73,11 @@ export function LinkedinCard() {
 
              <div className="flex items-center gap-2 mt-2 w-full">
                 <div className="flex items-center gap-1 bg-muted/50 p-1 rounded-sm w-full border border-border/50">
-                    <div className="w-4 h-4 rounded-full overflow-hidden bg-white shrink-0">
-                       <Image src="/images/facens-logo.png" width={16} height={16} alt="Facens" className="object-cover" />
+                    <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-red-600 text-[9px] font-bold text-white">
+                       V
                     </div>
                     <span className="text-[10px] font-medium truncate dark:text-gray-300">
-                       Centro Universitário Facens
+                       Veolia | ChemFeed
                     </span>
                 </div>
              </div>
