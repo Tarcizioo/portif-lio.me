@@ -49,7 +49,7 @@ function useTypingAnimation(words: string[], typingSpeed = 100, deletingSpeed = 
 }
 
 export default function Hero() {
-  const { t } = useLanguage()
+  const { language, t } = useLanguage()
   const typedRole = useTypingAnimation(t.hero.roles)
   const [isRealPhoto, setIsRealPhoto] = useState(false)
 
@@ -183,7 +183,7 @@ export default function Hero() {
              </a>
            </Button>
            <Button asChild variant="outline" className="h-10 px-6 rounded-full font-medium">
-             <Link href={siteConfig.links.resume} target="_blank" rel="noopener noreferrer">
+             <Link href={language === "pt" ? siteConfig.links.resumePt : siteConfig.links.resumeEn} target="_blank" rel="noopener noreferrer">
                {t.hero.resume}
                <Download className="mr-2 h-4 w-4" />
              </Link>
