@@ -79,8 +79,12 @@ export default function Home() {
                      key={index} 
                      {...item} 
                      index={index}
-                     title={t.experience.items[index].title}
-                     description={t.experience.items[index].description}
+                     title={t.experience.items[index]?.title || item.title}
+                     company={t.experience.items[index]?.company || item.company}
+                     period={t.experience.items[index]?.period || item.period}
+                     location={t.experience.items[index]?.location || item.location}
+                     description={t.experience.items[index]?.description || item.description}
+                     tags={t.experience.items[index]?.tags || item.tags}
                    />
                  ))}
               </div>
