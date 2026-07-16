@@ -9,7 +9,7 @@ export const en = {
   },
   about: {
     title: "About Me",
-    bio: "I am a Computer Engineering student and frontend developer focused on React, TypeScript, and complete digital products. At Veolia/ChemFeed, I support technical initiatives and build data integrations and automations that make internal processes more efficient. In my own work, I built Portal Animes V2, a social PWA with GraphQL, Firebase, and 47 automated tests, as well as a browser-based 3D voxel engine with Three.js and WebGL.",
+    bio: "I am a Computer Engineering student and frontend developer focused on React, TypeScript, and complete digital products. At Veolia/ChemFeed, I support technical initiatives and build internal web applications and automations with Google Apps Script, JavaScript, HTML, and CSS while respecting corporate confidentiality. In my own work, I built Portal Animes V2, a social PWA with GraphQL, Firebase, and 47 automated tests, as well as a browser-based 3D voxel engine with Three.js and WebGL.",
     interests: {
       title: "Focus areas",
       items: ["Frontend Architecture", "UI/UX & Accessibility", "Process Automation", "Quality & Testing", "Computer Graphics", "IoT"]
@@ -26,7 +26,7 @@ export const en = {
   skills: {
     categories: [
       { name: "Frontend & Product", items: ["TypeScript", "JavaScript", "React", "Next.js", "React Router", "Tailwind CSS"] },
-      { name: "Data & Backend", items: ["Firebase Auth", "Cloud Firestore", "GraphQL", "REST APIs", "TanStack Query", "SQL"] },
+      { name: "Data & Backend", items: ["Firebase Auth", "Cloud Firestore", "GraphQL", "REST APIs", "TanStack Query", "SQL", "Google Apps Script", "Google Workspace"] },
       { name: "Quality & Delivery", items: ["Vitest", "Testing Library", "GitHub Actions", "PWA", "Accessibility", "Responsive Design"] },
       { name: "Engineering & Design", items: ["Three.js", "WebGL", "Figma", "ESP32", "Arduino", "Git & GitHub"] },
     ]
@@ -79,14 +79,14 @@ export const en = {
           "Provide cross-functional support for technical, administrative, and technology initiatives within the ChemFeed team.",
           "Create and maintain technical documentation and process flowcharts for commercial and operational routines.",
           "Track maintenance, equipment quotations, delivery reports, suppliers, and material tests.",
-          "Develop process automations, data integrations, and reports to reduce manual work and improve internal workflows."
+          "Build internal web applications and automations with Google Apps Script, JavaScript, HTML, and CSS, with attention to access, reliability, and confidentiality."
         ],
-        tags: ["Process Automation", "SAP ERP", "Data Integration", "Technical Documentation"]
+        tags: ["Google Apps Script", "JavaScript", "Google Workspace", "Process Automation", "SAP ERP"]
       },
       {
         title: "Electrical Laboratory Intern",
         company: "Centro Universitário Facens",
-        period: "Aug/2024 — present",
+        period: "Aug/2024 — Mar/2026",
         location: "Sorocaba/SP",
         description: [
           "Provided technical support for practical electrical and physics activities with professors and students.",
