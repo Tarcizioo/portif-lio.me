@@ -11,14 +11,14 @@ import ContactForm from "@/components/ContactForm"
 import { TechStack } from "@/components/TechStack"
 import { Navbar } from "@/components/Navbar"
 import { ScrollToTop } from "@/components/ScrollToTop"
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 
 import { experience, projects } from "@/lib/data"
 
 import { LanguageToggle } from "@/components/LanguageToggle"
 import { useLanguage } from "@/components/LanguageContext"
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
