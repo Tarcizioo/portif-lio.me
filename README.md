@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio - Tarcizio Pereira Neto
 
-## Getting Started
+Portfólio profissional bilíngue com experiência, projetos selecionados, currículo em português e inglês e canais de contato.
 
-First, run the development server:
+**Site:** [portif-liome.vercel.app](https://portif-liome.vercel.app/)
+
+## Destaques
+
+- Conteúdo em português e inglês com preferência persistida no navegador.
+- Experiência profissional em formato de linha do tempo.
+- Projetos com detalhes técnicos, demonstração e código-fonte.
+- Currículos ATS-friendly em PT-BR e inglês.
+- Tema claro/escuro, navegação por teclado e command menu.
+- Formulário de contato integrado ao Web3Forms.
+
+## Projetos apresentados
+
+- **Portal Animes V2:** PWA social com React 19, AniList GraphQL, Firebase, TanStack Query e testes automatizados.
+- **Voxel Terrain Engine:** experimento de computação gráfica com Three.js, WebGL e InstancedMesh.
+- **Monitor de Ocupação IoT:** protótipo acadêmico com ESP32 e sensores ultrassônicos.
+
+## Stack
+
+Next.js 16, React 19, TypeScript, Tailwind CSS, shadcn/ui, Framer Motion e React Hook Form.
+
+## Desenvolvimento
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Validação de produção:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Os currículos são gerados com ReportLab:
 
-## Learn More
+```bash
+python scripts/generate_resumes.py
+```
 
-To learn more about Next.js, take a look at the following resources:
+Os arquivos finais ficam em `output/pdf/` e são copiados para `public/` para download no site.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estrutura de conteúdo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `lib/data.ts`: links, experiências, projetos e stack.
+- `lib/i18n/pt.ts`: conteúdo em português.
+- `lib/i18n/en.ts`: conteúdo em inglês.
+- `docs/linkedin-content.md`: textos revisados para o LinkedIn.
+- `scripts/generate_resumes.py`: fonte reproduzível dos currículos.
 
-## Deploy on Vercel
+## Licença
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Conteúdo pessoal e imagens reservados ao autor. O código pode ser consultado como referência de portfólio.

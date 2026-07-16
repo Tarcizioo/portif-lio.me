@@ -71,16 +71,17 @@ export default function ProjectCard({
               <Image 
                   src="/images/project-bg.jpg" 
                   alt="Background" 
-                  fill 
+                  fill
+                  sizes="(max-width: 640px) 100vw, 384px"
                   className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  priority
               />
               
               {image ? (
                   <Image 
                     src={image} 
                     alt={`${title} Preview`} 
-                    fill 
+                    fill
+                    sizes="(max-width: 640px) 100vw, 384px"
                     className={`object-cover transition-all duration-500 ease-in-out z-10 ${
                         isComingSoon ? "grayscale blur-[2px] scale-100" : "scale-[0.75] translate-y-4 rounded-lg shadow-lg group-hover:scale-[0.85] group-hover:translate-y-2 group-hover:shadow-[0_0_30px_-5px_rgba(0,0,0,0.5)]"
                     }`}
@@ -154,7 +155,8 @@ export default function ProjectCard({
                 <Image 
                   src={image} 
                   alt={`${title} Cover`} 
-                  fill 
+                  fill
+                  sizes="(max-width: 640px) 100vw, 672px"
                   className="object-cover"
                 />
              ) : (

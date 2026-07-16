@@ -39,7 +39,7 @@ export default function ExperienceItem({
          <div className="flex items-start gap-4">
             {logo && (
               <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md border border-border bg-white dark:bg-black">
-                 <Image src={logo} alt={company} fill className="object-contain p-1" />
+                 <Image src={logo} alt={company} fill sizes="48px" className="object-contain p-1" />
               </div>
             )}
             <div>

@@ -28,7 +28,7 @@ export default function Education() {
           </div>
           <div className="flex items-start gap-4 rounded-lg border border-border p-5 bg-card/50 transition-colors hover:bg-muted/30">
             <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md border border-border bg-white dark:bg-black">
-              <Image src="/images/facens-logo.png" alt="Facens" fill className="object-contain p-1" />
+              <Image src="/images/facens-logo.png" alt="Facens" fill sizes="48px" className="object-contain p-1" />
             </div>
             <div className="flex-1">
               <h3 className="text-lg font-semibold">{t.education.degree.title}</h3>

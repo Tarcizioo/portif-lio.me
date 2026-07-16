@@ -1,0 +1,6 @@
+# Preserve generated documents and image assets byte for byte.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary

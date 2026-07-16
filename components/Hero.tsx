@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
-import { Mail, BadgeCheck, ArrowRight, Download } from "lucide-react"
+import { BadgeCheck, ArrowRight, Download } from "lucide-react"
 import Image from "next/image"
 import { GithubCard, LinkedinCard } from "@/components/SocialCards"
 import { socialLinks, siteConfig } from "@/lib/data"
@@ -36,8 +36,10 @@ function useTypingAnimation(words: string[], typingSpeed = 100, deletingSpeed = 
     if (!isDeleting && displayText === currentWord) {
       timeout = setTimeout(() => setIsDeleting(true), pauseTime)
     } else if (isDeleting && displayText === "") {
-      setIsDeleting(false)
-      setWordIndex((prev) => (prev + 1) % words.length)
+      timeout = setTimeout(() => {
+        setIsDeleting(false)
+        setWordIndex((prev) => (prev + 1) % words.length)
+      }, deletingSpeed)
     } else {
       timeout = setTimeout(tick, isDeleting ? deletingSpeed : typingSpeed)
     }
@@ -49,7 +51,7 @@ function useTypingAnimation(words: string[], typingSpeed = 100, deletingSpeed = 
 }
 
 export default function Hero() {
-  const { t } = useLanguage()
+  const { language, t } = useLanguage()
   const typedRole = useTypingAnimation(t.hero.roles)
   const [isRealPhoto, setIsRealPhoto] = useState(false)
 
@@ -129,7 +131,8 @@ export default function Hero() {
                       <Image 
                         src={profileImage} 
                         alt={`${siteConfig.name} Profile`}
-                        fill 
+                        fill
+                        sizes="320px"
                         className="object-cover"
                       />
                    </div>
@@ -183,7 +186,7 @@ export default function Hero() {
              </a>
            </Button>
            <Button asChild variant="outline" className="h-10 px-6 rounded-full font-medium">
-             <Link href={siteConfig.links.resume} target="_blank" rel="noopener noreferrer">
+             <Link href={language === "pt" ? siteConfig.links.resumePt : siteConfig.links.resumeEn} target="_blank" rel="noopener noreferrer">
                {t.hero.resume}
                <Download className="mr-2 h-4 w-4" />
              </Link>

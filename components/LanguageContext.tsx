@@ -16,17 +16,20 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en")
+  const [language, setLanguage] = useState<Language>("pt")
 
   useEffect(() => {
     const savedLang = localStorage.getItem("language") as Language
-    if (savedLang) {
-      setLanguage(savedLang)
-    } else {
-      const browserLang = navigator.language.startsWith("pt") ? "pt" : "en"
-      setLanguage(browserLang)
-    }
+    const browserLang = navigator.language.startsWith("pt") ? "pt" : "en"
+    const nextLanguage = savedLang === "pt" || savedLang === "en" ? savedLang : browserLang
+    const frame = window.requestAnimationFrame(() => setLanguage(nextLanguage))
+
+    return () => window.cancelAnimationFrame(frame)
   }, [])
+
+  useEffect(() => {
+    document.documentElement.lang = language === "pt" ? "pt-BR" : "en"
+  }, [language])
 
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang)

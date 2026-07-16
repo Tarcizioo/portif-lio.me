@@ -11,14 +11,14 @@ import ContactForm from "@/components/ContactForm"
 import { TechStack } from "@/components/TechStack"
 import { Navbar } from "@/components/Navbar"
 import { ScrollToTop } from "@/components/ScrollToTop"
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 
 import { experience, projects } from "@/lib/data"
 
 import { LanguageToggle } from "@/components/LanguageToggle"
 import { useLanguage } from "@/components/LanguageContext"
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
@@ -79,8 +79,12 @@ export default function Home() {
                      key={index} 
                      {...item} 
                      index={index}
-                     title={t.experience.items[index].title}
-                     description={t.experience.items[index].description}
+                     title={t.experience.items[index]?.title || item.title}
+                     company={t.experience.items[index]?.company || item.company}
+                     period={t.experience.items[index]?.period || item.period}
+                     location={t.experience.items[index]?.location || item.location}
+                     description={t.experience.items[index]?.description || item.description}
+                     tags={t.experience.items[index]?.tags || item.tags}
                    />
                  ))}
               </div>
