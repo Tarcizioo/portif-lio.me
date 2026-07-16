@@ -81,6 +81,7 @@ RESUMES = {
             {
                 "name": "Portal Animes V2",
                 "meta": "React 19 | GraphQL | Firebase | PWA",
+                "link": "https://portal-animes-v2.vercel.app/",
                 "bullets": [
                     "Plataforma social com catálogo, biblioteca, estatísticas, perfis, comentários, notificações e recursos de acessibilidade.",
                     "Cache persistente, rotas lazy e pipeline GitHub Actions com lint, build e 47 testes automatizados.",
@@ -156,6 +157,7 @@ RESUMES = {
             {
                 "name": "Portal Animes V2",
                 "meta": "React 19 | GraphQL | Firebase | PWA",
+                "link": "https://portal-animes-v2.vercel.app/",
                 "bullets": [
                     "Social platform with catalog, library, statistics, profiles, comments, notifications, and accessible interactions.",
                     "Persistent cache, lazy-loaded routes, and a GitHub Actions pipeline with lint, build, and 47 automated tests.",
@@ -257,6 +259,9 @@ def project_block(item, st):
     content = [
         Paragraph(f"<b>{item['name']}</b> | {item['meta']}", st["entry"]),
     ]
+    if link := item.get("link"):
+        display_link = link.replace("https://", "", 1).rstrip("/")
+        content.append(Paragraph(f'<link href="{link}" color="#0B72B9">{display_link}</link>', st["meta"]))
     content.extend(Paragraph(f"- {bullet}", st["bullet"]) for bullet in item["bullets"])
     content.append(Spacer(1, 1.5))
     return KeepTogether(content)
