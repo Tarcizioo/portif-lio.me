@@ -1,18 +1,18 @@
 export const en = {
   hero: {
-    role: "Front-end Developer",
-    description: "Computer Engineering Student (5th Sem) focused on Front-end Development and Web Design.",
+    role: "Frontend Developer",
+    description: "I build complete web applications with React, TypeScript, GraphQL, and Firebase, combining product thinking, user experience, and engineering.",
     cta: "Contact Me",
-    resume: "Download CV",
-    socials: "Here are my socials",
-    roles: ["Front-end Developer", "UI Designer", "Web Creator", "IoT Explorer"]
+    resume: "Download Resume",
+    socials: "Find me online",
+    roles: ["Frontend Developer", "React & TypeScript", "Firebase & GraphQL", "Process Automation"]
   },
   about: {
     title: "About Me",
-    bio: "Hey! I'm Tarcizio — a Computer Engineering student with a passion for building beautiful and functional digital experiences. I love turning ideas into reality and I'm always looking to learn new things.",
+    bio: "I am a Computer Engineering student and frontend developer focused on React, TypeScript, and complete digital products. At Veolia/ChemFeed, I support technical initiatives and build data integrations and automations that make internal processes more efficient. In my own work, I built Portal Animes V2, a social PWA with GraphQL, Firebase, and 47 automated tests, as well as a browser-based 3D voxel engine with Three.js and WebGL.",
     interests: {
-      title: "What I'm Into",
-      items: ["UI/UX Design", "IoT & Embedded Systems", "Continuous Learning", "Coffee & Code", "Drawing", "Games"]
+      title: "Focus areas",
+      items: ["Frontend Architecture", "UI/UX & Accessibility", "Process Automation", "Quality & Testing", "Computer Graphics", "IoT"]
     }
   },
   section: {
@@ -25,18 +25,18 @@ export const en = {
   },
   skills: {
     categories: [
-      { name: "Frontend & Web", items: ["JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Tailwind CSS", "HTML5/CSS3"] },
-      { name: "Hardware & IoT", items: ["ESP32", "Arduino", "Sensors", "Electronics Basics"] },
-      { name: "Graphics & Design", items: ["Three.js", "WebGL", "Figma", "Photoshop", "Web Design"] },
-      { name: "Tools & Others", items: ["Git", "GitHub", "VS Code", "SQL", "Excel (Dashboards)"] },
+      { name: "Frontend & Product", items: ["TypeScript", "JavaScript", "React", "Next.js", "React Router", "Tailwind CSS"] },
+      { name: "Data & Backend", items: ["Firebase Auth", "Cloud Firestore", "GraphQL", "REST APIs", "TanStack Query", "SQL"] },
+      { name: "Quality & Delivery", items: ["Vitest", "Testing Library", "GitHub Actions", "PWA", "Accessibility", "Responsive Design"] },
+      { name: "Engineering & Design", items: ["Three.js", "WebGL", "Figma", "ESP32", "Arduino", "Git & GitHub"] },
     ]
   },
   education: {
     degree: {
       title: "Computer Engineering",
       institution: "Centro Universitário Facens",
-      period: "Feb/2024 — Nov/2028 (Expected)",
-      status: "Currently in the 5th Semester",
+      period: "Feb/2024 — Nov/2028 (expected)",
+      status: "Degree in progress",
     },
     certifications: [
       {
@@ -71,27 +71,46 @@ export const en = {
   experience: {
     items: [
       {
-        title: "Intern - Electrical Lab",
-        company: "Centro Universitário Facens",
+        title: "ChemFeed Intern",
+        company: "Veolia | ChemFeed",
+        period: "Mar/2026 — present",
+        location: "Sorocaba/SP · On-site",
         description: [
-          "Provided technical support in assembling electrical and physics experiments, assisting professors and students in lab activities.",
-          "Managed inventory and material control using Excel spreadsheets, ensuring resource availability for practical classes.",
-          "Standardized experiment documentation and guides to improve internal lab organization."
-        ]
+          "Provide cross-functional support for technical, administrative, and technology initiatives within the ChemFeed team.",
+          "Create and maintain technical documentation and process flowcharts for commercial and operational routines.",
+          "Track maintenance, equipment quotations, delivery reports, suppliers, and material tests.",
+          "Develop process automations, data integrations, and reports to reduce manual work and improve internal workflows."
+        ],
+        tags: ["Process Automation", "SAP ERP", "Data Integration", "Technical Documentation"]
+      },
+      {
+        title: "Electrical Laboratory Intern",
+        company: "Centro Universitário Facens",
+        period: "Aug/2024 — present",
+        location: "Sorocaba/SP",
+        description: [
+          "Provided technical support for practical electrical and physics activities with professors and students.",
+          "Managed inventory and materials in Excel, keeping laboratory classes supplied.",
+          "Standardized experiment guides and internal documentation."
+        ],
+        tags: ["Technical Support", "Excel", "Documentation", "Organization"]
       },
       {
         title: "Telemarketing Operator",
         company: "Instituto Cultural Newton Paiva Ferreira",
+        period: "Apr/2023 — Sep/2023",
+        location: "Belo Horizonte/MG",
         description: [
-          "Developed assertive communication and problem-solving skills under pressure (40-50 calls/day).",
-          "Used CRM and Excel for lead management and data auditing, praised for organization and clarity."
-        ]
+          "Handled 40-50 calls per day, developing assertive communication and problem solving under pressure.",
+          "Used CRM and Excel for lead management and data auditing."
+        ],
+        tags: ["Communication", "CRM", "Excel", "Problem Solving"]
       }
     ]
   },
   contact: {
     title: "Get in touch",
-    description: "Have a question or want to work together? Send me a message!",
+    description: "Have an opportunity, project, or idea to discuss? Send me a message.",
     name: "Name",
     email: "Email",
     message: "Message",
@@ -113,7 +132,7 @@ export const en = {
     theme: "Theme",
     navigation: "Navigation",
     sendEmail: "Send Email",
-    downloadCv: "Download CV",
+    downloadCv: "Download Resume",
     viewGithub: "View GitHub",
     viewLinkedin: "View LinkedIn",
     light: "Light",
@@ -129,54 +148,50 @@ export const en = {
     view: "View Project",
     source: "Source Code",
     details: "View Details",
-    features: "Key Features",
+    features: "Technical highlights",
     technologies: "Technologies",
     status: {
       live: "Live",
-      building: "Building",
+      building: "In development",
       comingSoon: "Coming Soon"
     },
     items: [
       {
-        title: "Portal Animes",
-        description: "Full-stack responsive web app with real-time anime data via Jikan API, featuring advanced search and filtering.",
-        longDescription: "A comprehensive anime discovery platform built with React and Next.js. Provides real-time data fetching, dynamic search with debounced filtering, detailed anime profiles with synopsis, characters and episodes, and a fully responsive grid layout.",
+        title: "Portal Animes V2",
+        description: "Social PWA built with React 19, AniList GraphQL, Firebase, and an automated quality pipeline.",
+        longDescription: "A complete platform for discovering, tracking, and organizing anime. It combines React 19, AniList GraphQL, Firebase Authentication and Firestore, persistent caching, real-time interactions, accessibility, PWA capabilities, and automated validation.",
         features: [
-          "Real-time data fetching via Jikan REST API",
-          "Debounced search with dynamic filtering",
-          "Responsive grid layout with CSS Modules",
-          "Detailed anime profile pages with lazy-loaded content"
+          "Catalog, search, calendar, and detail pages powered by AniList GraphQL",
+          "Library, statistics, recommendations, profiles, comments, and social connections",
+          "Google authentication and real-time persistence with Firebase",
+          "Installable PWA, 24-hour cache, lazy-loaded routes, and accessible interactions",
+          "47 automated tests plus lint and production build checks in GitHub Actions"
         ]
       },
       {
         title: "Voxel Terrain Engine",
-        description: "High-performance browser-based 3D engine with procedural terrain generation and optimized InstancedMesh rendering.",
-        longDescription: "A real-time 3D voxel engine running entirely in the browser. Leverages Three.js and WebGL with InstancedMesh for GPU-optimized block rendering, procedural terrain via Perlin Noise, and first-person camera controls.",
+        description: "Browser-based voxel engine with procedural terrain and GPU-efficient InstancedMesh rendering.",
+        longDescription: "A real-time voxel rendering experiment built with Three.js and WebGL. It explores procedural generation, efficient GPU instancing, first-person controls, basic physics, raycasting, and block interaction.",
         features: [
-          "Procedural terrain generation with Perlin Noise",
-          "GPU-optimized rendering via InstancedMesh",
-          "First-person camera with pointer lock controls",
-          "Dynamic chunk loading/unloading for performance"
+          "Procedural terrain generated from a mathematical height function",
+          "Thousands of blocks rendered with THREE.InstancedMesh",
+          "WASD, jumping, gravity, pointer-lock camera, and ground collision",
+          "Raycasting for block detection and visual destruction",
+          "Browser-based 3D graphics with JavaScript, Three.js, and WebGL"
         ]
       },
       {
-        title: "IoT Crowd Monitoring",
-        description: "ESP32-based IoT prototype for real-time crowd density prediction using ultrasonic sensors.",
-        longDescription: "An IoT solution for real-time foot traffic monitoring and analysis. Uses an ESP32 microcontroller paired with ultrasonic sensors to count people entering and exiting a space, with cloud data logging via REST API.",
+        title: "IoT Occupancy Monitor",
+        description: "Academic ESP32 prototype using ultrasonic sensors and a dashboard to monitor people flow.",
+        longDescription: "An academic IoT prototype that detects entry and exit events with an ESP32 and ultrasonic sensors. It explores embedded programming, sensor integration, Wi-Fi communication, and occupancy data visualization.",
         features: [
-          "Real-time bidirectional people counting",
-          "ESP32 Wi-Fi connectivity for cloud integration",
-          "REST API data logging and visualization",
-          "Low-power design for extended deployment"
+          "Bidirectional event detection with ultrasonic sensors",
+          "ESP32-based Wi-Fi connectivity",
+          "REST integration for data logging",
+          "Dashboard-oriented occupancy visualization",
+          "Prototype architecture prepared for iterative validation"
         ]
-      },
-      {
-        title: "Coming Soon",
-        description: "...",
-        longDescription: "Working on something new and exciting!",
-        features: []
       }
     ]
   }
 }
-
