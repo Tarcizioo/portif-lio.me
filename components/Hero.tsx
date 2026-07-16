@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
-import { Mail, BadgeCheck, ArrowRight, Download } from "lucide-react"
+import { BadgeCheck, ArrowRight, Download } from "lucide-react"
 import Image from "next/image"
 import { GithubCard, LinkedinCard } from "@/components/SocialCards"
 import { socialLinks, siteConfig } from "@/lib/data"
@@ -36,8 +36,10 @@ function useTypingAnimation(words: string[], typingSpeed = 100, deletingSpeed = 
     if (!isDeleting && displayText === currentWord) {
       timeout = setTimeout(() => setIsDeleting(true), pauseTime)
     } else if (isDeleting && displayText === "") {
-      setIsDeleting(false)
-      setWordIndex((prev) => (prev + 1) % words.length)
+      timeout = setTimeout(() => {
+        setIsDeleting(false)
+        setWordIndex((prev) => (prev + 1) % words.length)
+      }, deletingSpeed)
     } else {
       timeout = setTimeout(tick, isDeleting ? deletingSpeed : typingSpeed)
     }
